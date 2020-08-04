@@ -1,0 +1,369 @@
+﻿A data engineer in a manufacturing company is designing a data processing platform that receives a large volume of 
+unstructured data. The data engineer must populate a well-structured star schema in Amazon
+Redshift.
+What is the most efficient architecture strategy for this purpose?
+
+	A. TRANSFORM THE UNSTRUCTURED DATA USING AMAZON EMR AND GENERATE CSV DATA. COPY THE CSV DATA INTO THE ANALYSIS SCHEMA WITHIN REDSHIFT.
+	B. Load the unstructured data into Redshift, and use string parsing functions to extract structured data for inserting into the analysis schema.
+	C. When the data is saved to Amazon S3, use S3 Event Notifications and AWS Lambda to transform the file contents. Insert the data into the analysis schema on Redshift.
+	D. Normalize the data using an AWS Marketplace ETL tool, persist the results to Amazon S3, and use AWS Lambda to INSERT the data into Redshift.
+
+	
+	Not B - never load unstructured data to Redshift
+	Not C - s3 event + lambda would be more suitable for incremental, continuous S3-Redshift integration. Here, we have one large bulk load, so event notifications don't make sense and lambda may not be able to handle all transformation in one call due to service limits.
+	Not D - Normalization is the act of adjusting values on a scale, usually subtracting mean and dividing by standard deviation. That doesn't make sense here.
+	
+A new algorithm has been written in Python to identify SPAM e-mails. The algorithm analyzes the free text contained within
+ a sample set of 1 million e-mails stored on Amazon S3. The algorithm must be scaled across a production dataset of 5 PB, which
+ also resides in Amazon S3 storage.
+Which AWS service strategy is best for this use case?
+
+	A. Copy the data into Amazon ElastiCache to perform text analysis on the in-memory data and export the results of the model into Amazon Machine Learning.
+	B. Use Amazon EMR to parallelize the text analysis tasks across the cluster using a streaming program step.
+	C. USE AMAZON ELASTICSEARCH SERVICE TO STORE THE TEXT AND THEN USE THE PYTHON ELASTICSEARCH CLIENT TO RUN ANALYSIS AGAINST
+	THE TEXT INDEX.
+	D. Initiate a Python job from AWS Data Pipeline to run directly against the Amazon S3 text files.	
+	
+	Reference: https://aws.amazon.com/blogs/database/indexing-metadata-in-amazon-elasticsearch-service- using-aws-lambda-
+	and-python/
+
+An administrator needs to design a distribution strategy for a star schema in a Redshift cluster. The administrator needs to 
+determine the optimal distribution style for the tables in the Redshift schema. In which three circumstances would 
+choosing Key-based distribution be most appropriate? (Select three
+
+	A. WHEN THE ADMINISTRATOR NEEDS TO OPTIMIZE A LARGE, SLOWLY CHANGING DIMENSION TABLE. ALL 
+	B. When the administrator needs to reduce cross-node traffic. X
+	C. WHEN THE ADMINISTRATOR NEEDS TO OPTIMIZE THE FACT TABLE FOR PARITY WITH THE NUMBER OF SLICES. EVEN
+	D. WHEN THE ADMINISTRATOR NEEDS TO BALANCE DATA DISTRIBUTION AND COLLOCATION DATA. X
+	E. When the administrator needs to take advantage of data locality on a local node for joins and aggregates X
+	
+	
+Amazon EMR provides several ways to get data onto a cluster. If you have large amounts of on-premises data to process, 
+you may find the AWS Direct Connect service useful https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-get-data-in.html	
+
+EVEN distribution is appropriate when a table does not participate in joins or when there is not a clear choice 
+between KEY distribution and ALL distribution https://docs.aws.amazon.com/redshift/latest/dg/c_choosing_dist_sort.html
+
+(*) GZIP compression uses more CPU resources than Snappy or LZO, but provides a higher compression ratio. GZip is often 
+a good choice for cold data, which is accessed infrequently.
+(*) Snappy or LZO are a better choice for hot data, which is accessed frequently.
+(*) BZip2 can also produce more compression than GZip for some types of files, at the cost of some speed when compressing and decompressing.
+(*) For MapReduce, if you need your compressed data to be splittable, BZip2, LZO, and Snappy formats are splittable, but GZip is not.
+
+
+A web-hosting company is building a web analytics tool to capture clickstream data from all of the websites hosted within its
+ platform and to provide near-real-time business intelligence. This entire system is built on
+AWS services. The web-hosting company is interested in using Amazon Kinesis to collect this data and perform sliding 
+window analytics.
+What is the most reliable and fault-tolerant technique to get each website to send data to Amazon Kinesis with every click?
+
+	A. After receiving a request, each web server sends it to Amazon Kinesis using the Amazon Kinesis PutRecord API. Use 
+	the sessionID as a partition key and set up a loop to retry until a success response is received.
+
+	Concept of back-off algorithm in Kinesis 	https://docs.aws.amazon.com/streams/latest/dev/kinesis-producer-adv-retries-rate-limiting.html
+	KPL is used when High performance, long-running producers
+	Automated and configurable retry mechanism
+	Sync and Async API(better perf for Async)
+	100B records (high volume of data)
+	
+	
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-sort-keys.html
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html	
+
+
+When you create a cluster with consistent view enabled, Amazon EMR uses an Amazon DynamoDB database to store object 
+metadata and track consistency with Amazon S3
+
+https://aws.amazon.com/blogs/big-data/how-expedia-implemented-near-real-time-analysis-of-interdependent-datasets/
+
+
+A media advertising company handles a large number of real-time messages sourced from over 200 websites in real time. 
+Processing latency must be kept low. Based on calculations, a 60-shard Amazon Kinesis stream is more than sufficient 
+to handle the maximum data throughput, even with traffic spikes. The company also uses an Amazon Kinesis Client Library 
+(KCL) application running on Amazon Elastic Compute Cloud (EC2) managed by an Auto Scaling group. Amazon CloudWatch 
+indicates an average of 25% CPU and a modest level of network traffic across all running servers. The company 
+reports a 150% to 200% increase in latency of processing messages from Amazon Kinesis during peak times. There are NO 
+reports of delay from the sites publishing to Amazon Kinesis.
+What is the appropriate solution to address the latency?
+
+		A. Increase the number of shards in the Amazon Kinesis stream to 80 for greater concurrency.
+		B. Increase the size of the Amazon EC2 instances to increase network throughput.
+		C. Increase the minimum number of instances in the Auto Scaling group.
+		D. INCREASE AMAZON DYNAMODB THROUGHPUT ON THE CHECKPOINT TABLE.
+
+		https://aws.amazon.com/blogs/big-data/processing-amazon-dynamodb-streams-using-the-amazon-kinesis-client-library/
+		
+A Redshift data warehouse has different user teams that need to query the same table with very different query types. These 
+user teams are experiencing poor performance.
+
+				Add support for workload management queue hopping.
+				https://docs.aws.amazon.com/redshift/latest/dg/cm-c-implementing-workload-management.html
+
+Presto is good for Peta bytes of data and for interactive queries while pig is mostly used for etl processing
+
+
+A customer needs to determine the optimal distribution strategy for the ORDERS fact table in its Redshift schema. 
+The ORDERS table has foreign key relationships with multiple dimension tables in this schema.
+How should the company determine the most appropriate distribution key for the ORDERS table?
+	
+	D. Identify the largest and the most frequently joined dimension table and designate the key of this dimension table 
+	as the distribution key of the ORDERS table.
+
+	https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on- amazon-redshift/
+
+A customer is collecting clickstream data using Amazon Kinesis and is grouping the events by IP address into
+5-minute chunks stored in Amazon S3. Many analysts in the company use Hive on Amazon EMR to analyze this data. Their queries
+ always reference a single IP address. Data must be optimized for querying based on IP address using Hive running on Amazon
+EMR. What is the most efficient method to query the data with Hive?	
+
+
+	A. Store an index of the files by IP address in the Amazon DynamoDB metadata store for EMRFS.
+	B. STORE THE AMAZON S3 OBJECTS WITH THE FOLLOWING NAMING SCHEME: BUCKET_NAME/SOURCE=IP_ADDRESS/ YEAR=YY/MONTH=MM/DAY=DD/HOUR=HH/FILENAME.
+	C. Store the data in an HBase table with the IP address as the row key.
+	d. store the events for an ip address as a single file in amazon s3 and add metadata with keys: hive_partitioned_ipaddres
+	
+	Hive on EMR can just use Aruro-RDS or Glue as external metastore
+	HBase no-sql database.
+	Copying all files into one single file does not help partioning.
+	Query will be performant if there are fewer partitions in S3. Also as per the question there is a need to query the data only using IP address and therefore creating a metadata with Partition ID as the key is the right option.
+	Using Amazon EMR version 5.8.0 or later, you can configure Hive to use the AWS Glue Data Catalog as its metastore. We recommend this configuration when you require a persistent metastore or a metastore shared by different clusters, services, applications, or AWS accounts.
+	
+An online retailer is using Amazon DynamoDB to store data related to customer transactions. The items in the table contains 
+several string attributes describing the transaction as well as a JSON attribute containing the shopping cart and other 
+details corresponding to the transaction. Average item size is 250KB, most of which is associated with the JSON attribute. 
+The average customer generates 3GB of data per month. Customers access the table to display their transaction history and 
+review transaction details as needed.
+Ninety percent of the queries against the table are executed when building the transaction history view, with the other 
+10% retrieving transaction details. The table is partitioned on CustomerID and sorted on transaction date.
+The client has very high read capacity provisioned for the table and experiences very even utilization, but complains 
+about the cost of Amazon DynamoDB compared to other NoSQL solutions.
+Which strategy will reduce the cost associated with the clients read queries while not degrading quality?	
+
+
+
+	A. MODIFY ALL DATABASE CALLS TO USE EVENTUALLY CONSISTENT READS AND ADVISE CUSTOMERS THAT TRANSACTION HISTORY MAY BE ONE 
+	SECOND OUT-OF-DATE.
+	B. Change the primary table to partition on TransactionID, create a GSI partitioned on customer and sorted on date, 
+	project small attributes into GSI, and then query GSI for summary data and the primary table for JSON details.
+	C. Vertically partition the table, store base attributes on the primary table, and create a foreign key reference to a 
+	secondary table containing the JSON data. Query the primary table for summary data and the secondary table for JSON details.
+	D. Create an LSI sorted on date, project the JSON attribute into the index, and then query the primary table for summary 
+	data and the LSI for JSON details.
+	
+	
+	Cannot change the primary table’s partition key once created. If GSI was created on transaction ID then we could use the 
+	base table for summary transactions and the GSI for transaction details. But even then its hard to reduce 
+	the total RCU and WCU from what they currently have as the RCU will now then distributed 90%/10% between the base 
+	table and the GSI table.
+	No concept of a foreign key in Dynamo DB.
+	Cannot create an LSI after the table is created. Also the table already has date as the sort key already. Besides there are limitation on the table size containing an LSI which is 10GB.
+	Option B and D requires rebuilding of table.
+
+Spark /KCL does not read from KDF.
+
+✑ Faceting
+✑ Search
+✑ Flexible schema (JSON) and fixed schema
+✑ Noise word elimination
+Which data store should the organization choose?
+
+
+	D. Amazon Elasticsearch Service
+	
+Generate a static graph with a transient EMR cluster daily, and store it an Amazon S3, cost-effective 
+
+A Glacier "vault access policy" is a resource based policy that you can use to manage permissions to your vault.You can modify permissions in a Vault access policy at any time.
+
+A Glacier "vault lock policy" is vault access policy that can be locked. After you lock a vault lock policy, the policy cannot be changed. You can use a vault lock policy to enforce compliance controls.
+
+You can enforce the requirement by implementing the following vault lock policy: "glacier:DeleteArchieve" action on the vault.
+
+
+EMRFS consistent view. Consistent view allows EMR clusters to check for list and read-after-write consistency for Amazon S3 objects written by or 
+synced with EMRFS. Consistent view addresses an issue that can arise due to 
+the Amazon S3 Data Consistency Model
+
+
+Amazon Redshift Database is encrypted using KMS. A data engineer needs to use the AWS CLI to create a KMS encrypted 
+snapshot of the database in another AWS region. Which three steps should the data engineer take to accomplish this task? (Choose three.)
+
+
+	A. CREATE A NEW KMS KEY IN THE DESTINATION REGION.  	XX
+	B. Copy the existing KMS key to the destination region.
+	C. USE CREATESNAPSHOTCOPYGRANT TO ALLOW AMAZON REDSHIFT TO USE THE KMS KEY FROM THE SOURCE REGION. XX
+	D. IN THE SOURCE REGION, ENABLE CROSS-REGION REPLICATION AND SPECIFY THE NAME OF THE COPY GRANT CREATED. XX
+	E. In the destination region, enable cross-region replication and specify the name of the copy grant create 
+
+
+Managers in a company need access to the human resources database that runs on Amazon Redshift, to run reports about their employees. 
+Managers must only see information about their direct reports.
+Which technique should be used to address this requirement with Amazon Redshift?
+
+	A. Define an IAM group for each manager with each employee as an IAM user in that group, and use that to limit the access.
+	B. Use Amazon Redshift snapshot to create one cluster per manager. Allow the manager to access only their designated clusters.
+	C. Define a key for each manager in AWS KMS and encrypt the data for their employees with their private keys.
+	D. DEFINE A VIEW THAT USES THE EMPLOYEE’S MANAGER NAME TO FILTER THE RECORDS BASED ON CURRENT USER NAMES.	
+	
+	Not A – Lot of maintenance to create one group per manager.
+	Not B – Cost overhead- cost will multiple manifold.
+	Not C – Doesn’t make sense. How will RedShift talk to KMS? Who will manage the key-pair for each manager in KMS.
+	D – is the correct answer because you can create view to provide row-level access based on the attribute values in 
+	the underlying table.	
+
+A company is building a new application in AWS. The architect needs to design a system to collect application log events. 
+The design should be a repeatable pattern that minimizes data loss if an application instance fails, and keeps a durable 
+copy of a log data for at least 30 days.
+What is the simplest architecture that will allow the architect to analyze the logs?
+
+	A. Write them directly to a Kinesis Firehose. Configure Kinesis Firehose to load the events into an Amazon Redshift 
+	cluster for analysis.
+	B. Write them to a file on Amazon Simple Storage Service (S3). Write an AWS Lambda function that runs in 
+	response to the S3 event to load the events into Amazon Elasticsearch Service for analysis.
+	C. WRITE THEM TO THE LOCAL DISK AND CONFIGURE THE AMAZON CLOUDWATCH LOGS AGENT TO LOAD THE DATA INTO CLOUDWATCH 
+	LOGS AND SUBSEQUENTLY INTO AMAZON ELASTICSEARCH SERVICE.
+	D. Write them to CloudWatch Logs and use an AWS Lambda function to load them into HDFS on an Amazon Elastic MapReduce (EMR) 
+	cluster for analysis	
+	
+	Not A - because writing logs to RedShift doesn't make sense.
+	Not B - because to write logs to S3 you will have to still configure Cloudwatch logs on the server or write code in your 
+	application to use S3 SDK to write the log data to S3 directly which is not the best or simplest solution.
+	Not D -because EMR is not a storage service.
+	Only option that fits is C with no additional effort except for configuring Cloudwatch log agent to ship the logs to Cloudwatch and then configure CloudWatch to send the logs directly to Elasticsearch which doesn't require Lambda to glue them together.	
+
+lambda batch size in kinesis
+https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
+
+HDFS is used by the master and core nodes. One advantage is that it's fast; a disadvantage is that it's ephemeral 
+storage which is reclaimed when the cluster ends. It's best used for caching the results produced by intermediate
+ job-flow steps.
+
+Optimal nodes size in redshift
+https://d1.awsstatic.com/whitepapers/Size-Cloud-Data-Warehouse-on-AWS.pdf
+
+An online gaming company uses DynamoDB to store user activity logs and is experiencing throttled writes on the companys 
+DynamoDB table. The company is NOT consuming close to the provisioned capacity. The table contains a large number of 
+items and is partitioned on user and sorted by date. The table is 200GB and is currently provisioned at 10K WCU and 20K RCU.
+Which two additional pieces of information are required to determine the cause of the throttling? (Choose two.)
+
+	A. The structure of any GSIs that have been defined on the table
+	B. CloudWatch data showing consumed and provisioned write capacity when writes are being throttled
+	C. Application-level metrics showing the average item size and peak update rates for each attribute
+	D. The structure of any LSIs that have been defined on the table
+	E. The maximum historical WCU and RCU for the table
+
+
+	B. OK CloudWatch data showing consumed and provisioned write capacity when writes are being throttled
+	D. OK The structure of any LSIs that have been defined on the table
+
+	A. NOOK GSI has its own RCU and WCU, will NOT impact the table's RCU and WCU.
+	C. NOOK Average item couldn't tell whether hit hot partition or not.
+	E. NOOK Historical doesn't mean you won't have hot partition now.
+
+
+you would want to use the EMR cluster with EMRFS as opposed to Ec2 based Hadoop cluster using HDFS to run the Spark Job
+ without moving the data from S3
+
+COPY DATA FROM ONPREMISES POSTGRESSQL TO REDSHIFT
+        Extract the incremental changes periodically using a SQL query. Upload the changes to multiple Amazon Simple Storage
+		Service (S3) objects, and run the COPY command to load to the Amazon Redshift staging layer.
+		
+Hive is better. Hive is optimized for query throughput, while Presto is optimized for latency. Presto has a limitation on the
+ maximum amount of memory that each task in a query can store,
+Presto is an open source, distributed SQL query engine designed for fast, interactive queries on data in 
+
+https://docs.aws.amazon.com/solutions/latest/real-time-analytics-spark-streaming/architecture.html
+
+A solutions architect for a logistics organization ships packages from thousands of suppliers to end customers.
+The architect is building a platform where suppliers can view the status of one or more of their shipments.
+Each supplier can have multiple roles that will only allow access to specific fields in the resulting information.
+Which strategy allows the appropriate level of access control and requires the LEAST amount of management work?
+
+	A. Send the tracking data to Amazon Kinesis Streams. Use AWS Lambda to store the data in an Amazon DynamoDB Table. Generate
+	temporary AWS credentials for the suppliers users with AWS STS, specifying fine-grained security policies to limit access 
+	only to their applicable data.
+	B. Send the tracking data to Amazon Kinesis Firehose. Use Amazon S3 notifications and AWS Lambda to prepare files in Amazon
+	S3 with appropriate data for each suppliers roles. Generate temporary AWS credentials for the suppliers users with AWS STS. 
+	Limit access to the appropriate files through security policies.
+	C. Send the tracking data to Amazon Kinesis Streams. Use Amazon EMR with Spark Streaming to store the data in HBase. 
+	Create one table per supplier. Use HBase Kerberos integration with the suppliers users. Use HBase ACL-based security to 
+	limit access for the roles to their specific table and columns.
+	D. Send the tracking data to Amazon Kinesis Firehose. Store the data in an Amazon Redshift cluster. Create views for the 
+	suppliers users and roles. Allow suppliers access to the Amazon Redshift cluster using a user limited to the applicable 
+	view. B
+
+	Not A- Using temporary credentials you cannot access a Dynamo DB table using a 	. 
+	https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html
+	Not C – Its not manageable to create one table per supplier as there are thousands of supplier as per the question.
+	Not D- This is a possible solution but not with least amount of management. You will need to create as many view as 
+	there are supplier roles in RedShift.
+	B- This is the best choice- It uses the out-of-the-box STS functionality to associate the appropriate IAM Role 
+	to the temp user credentials for the user who logs in via SAML federation into AWS and then grants access 
+	to the files using resource based polices in S3.
+
+An Amazon Redshift Database is encrypted using KMS. A data engineer needs to use the AWS CLI to create a KMS encrypted snapshot of the database in another AWS region.
+Which three steps should the data engineer take to accomplish this task? (Choose three.)
+
+	Create a new KMS key in the destination region.
+	In the source region, enable cross-region replication and specify the name of the copy grant created.
+	Use CreateSnapshotCopyGrant to allow Amazon Redshift to use the KMS key created in the destination region.
+	
+An organization is setting up a data catalog and metadata management environment for their numerous data stores currently
+ running on AWS. The data catalog will be used to determine the structure and other attributes of data in the data stores. The
+ data stores are composed of Amazon RDS databases, Amazon
+Redshift, and CSV files residing on Amazon S3. The catalog should be populated on a scheduled basis, and minimal 
+administration is required to manage the catalog.	
+	
+	Using Amazon EMR version 5.8.0 or later, you can configure Hive to use the AWS Glue Data Catalog as its metastore. 
+	We recommend this configuration when you require a persistent metastore or a metastore shared by different 
+	clusters, services, applications, or AWS accounts.
+	https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-metastore-glue.html
+	
+	
+An organization is using Amazon Kinesis Data Streams to collect data generated from thousands of temperature devices 
+and is using AWS Lambda to process the data. Devices generate 10 to 12 million records every day, but Lambda is processing
+ only around 450 thousand records. Amazon CloudWatch indicates that throttling on Lambda is not occurring.
+What should be done to ensure that all data is processed	
+	
+	A- Because Lambda’s capacity is underutilized so increasing the batch size will enable the function to process more
+	records in a single invocation. However it will also need more memory to process the increased # of records.
+    E- The reason why Lambda is processing only 450 records per day even though the Kinesis Streams is collecting 10 to 
+	12 million records per day is due to lower Kinesis throughput. To increase the throughput ( Bytes/sec read from Kinesis
+	stream) we would need to increase the # of shards.
+	
+The KPL is an easy-to-use, highly configurable library that helps you write to a Kinesis data stream. It acts as an intermediary 
+between your producer application code and the Kinesis Data Streams API actions. The KPL performs the following primary tasks:
+Writes to one or more Kinesis data streams with an automatic and configurable retry mechanism
+Collects records and uses PutRecords to write multiple records to multiple shards per request
+Aggregates user records to increase payload size and improve throughput".
+
+
+An organization currently runs a large Hadoop environment in their data center and is in the process of creating an alternative
+ Hadoop environment on AWS, using Amazon EMR.
+They generate around 20 TB of data on a monthly basis. Also on a monthly basis, files need to be grouped and copied to
+ Amazon S3 to be used for the Amazon
+EMR environment. They have multiple S3 buckets across AWS accounts to which data needs to be copied. There is a 10G AWS 
+Direct Connect setup between their data center and AWS, and the network team has agreed to allocate 50% of AWS Direct
+ Connect bandwidth to data transfer. The data transfer cannot take more than two days.
+What would be the MOST efficient approach to transfer data to AWS on a monthly basis?
+
+	D. Setup S3DistCp tool on the on-premises Hadoop environment to transfer data to Amazon S3 over AWS Direct Connect.
+	
+An advertising organization uses an application to process a stream of events that are received from clients in multiple 
+unstructured formats.
+The application does the following:
+✑ Transforms the events into a single structured format and streams them to Amazon Kinesis for real-time analysis.
+✑ Stores the unstructured raw events from the log files on local hard drivers that are rotated and uploaded to Amazon S3.
+The organization wants to extract campaign performance reporting using an existing Amazon redshift cluster.
+Which solution will provide the performance data with the LEAST number of operations?
+
+	A. Install the Amazon Kinesis Data Firehose agent on the application servers and use it to stream the log files directly
+	to Amazon Redshift.
+	B. Create an external table in Amazon Redshift and point it to the S3 bucket where the unstructured raw events are stored.
+	C. Write an AWS Lambda function that triggers every hour to load the new log files already in S3 to Amazon redshift.
+	D. Connect Amazon Kinesis Data Firehose to the existing Amazon Kinesis stream and use it to stream the event directly
+	to Amazon Redshift.
+		
+	Not A – No use loading unstructured data in multiple formats to RedShift via Kinesis Firehouse agent.
+	Not B- Creating External table using RedShift Spectrum will be an issue against unstructured data in multiple formats.
+	Not C - Not a good choice. Never seen Lambda talking to RedShift and why would you use it when KFH directly connect to RedShift.
+	Correct Option is D- Because it loads structured data in a single format to RedShift.	

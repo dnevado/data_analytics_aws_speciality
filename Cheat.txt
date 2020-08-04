@@ -1,0 +1,297 @@
+https://aws.amazon.com/blogs/big-data/scaling-amazon-kinesis-data-streams-with-aws-application-auto-scaling/
+ 
+https://aws.amazon.com/blogs/big-data/top-8-best-practices-for-high-performance-etl-processing-using-amazon-redshift/
+ 
+https://aws.amazon.com/blogs/big-data/scaling-writes-on-amazon-dynamodb-tables-with-global-secondary-indexes/
+ 
+https://aws.amazon.com/blogs/big-data/encrypt-and-decrypt-amazon-kinesis-records-using-aws-kms/
+ 
+https://aws.amazon.com/jp/blogs/big-data/joining-and-enriching-streaming-data-on-amazon-kinesis/
+ 
+https://aws.amazon.com/blogs/big-data/processing-amazon-dynamodb-streams-using-the-amazon-kinesis-client-library/
+ 
+https://aws.amazon.com/blogs/big-data/analyze-a-time-series-in-real-time-with-aws-lambda-amazon-kinesis-and-amazon-dynamodb-streams/
+ 
+https://aws.amazon.com/blogs/big-data/querying-amazon-kinesis-streams-directly-with-sql-and-spark-streaming/
+ 
+https://aws.amazon.com/blogs/big-data/optimize-spark-streaming-to-efficiently-process-amazon-kinesis-streams/
+ 
+https://aws.amazon.com/blogs/big-data/best-practices-for-securing-amazon-emr/
+ 
+https://aws.amazon.com/blogs/aws/amazon-quicksight-update-geospatial-visualization-private-vpc-access-and-more/
+ 
+https://aws.amazon.com/blogs/architecture/store-protect-optimize-your-healthcare-data-with-aws/ 
+ 
+https://aws.amazon.com/blogs/big-data/a-zero-administration-amazon-redshift-database-loader/ 
+ 
+https://aws.amazon.com/blogs/big-data/implementing-efficient-and-reliable-producers-with-the-amazon-kinesis-producer-library/ 
+ 
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html
+https://docs.aws.amazon.com/emr/latest/ReleaseGuide/hue-ldap.html 
+ 
+https://aws.amazon.com/blogs/big-data/combine-nosql-and-massively-parallel-analytics-using-apache-hbase-and-apache-hive-on-amazon-emr/
+ 
+https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-access-hive.html
+ 
+https://aws.amazon.com/blogs/big-data/analyze-your-data-on-amazon-dynamodb-with-apache-spark/
+ 
+https://aws.amazon.com/blogs/big-data/analyze-realtime-data-from-amazon-kinesis-streams-using-zeppelin-and-spark-streaming/
+ 
+https://aws.amazon.com/blogs/big-data/powering-amazon-redshift-analytics-with-apache-spark-and-amazon-machine-learning/
+ 
+https://aws.amazon.com/blogs/big-data/using-spark-sql-for-etl/
+ 
+https://aws.amazon.com/blogs/compute/ad-hoc-big-data-processing-made-simple-with-serverless-mapreduce/
+https://aws.amazon.com/blogs/big-data/using-aws-lambda-for-event-driven-data-processing-pipelines/
+https://aws.amazon.com/blogs/compute/amazon-kinesis-firehose-data-transformation-with-aws-lambda/  
+ 
+https://aws.amazon.com/blogs/compute/implementing-a-serverless-aws-iot-backend-with-aws-lambda-and-amazon-dynamodb/ 
+https://aws.amazon.com/blogs/database/indexing-metadata-in-amazon-elasticsearch-service-using-aws-lambda-and-python/
+https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on-amazon-redshift/ 
+https://docs.aws.amazon.com/redshift/latest/dg/t_updating-inserting-using-staging-tables-.html 
+ 
+ 
+
+https://aws.amazon.com/blogs/big-data/building-a-multi-class-ml-model-with-amazon-machine-learning/
+https://aws.amazon.com/blogs/big-data/building-a-binary-classification-model-with-amazon-machine-learning-and-amazon-redshift/
+https://aws.amazon.com/blogs/big-data/building-a-numeric-regression-model-with-amazon-machine-learning/
+https://aws.amazon.com/blogs/machine-learning/predicting-customer-churn-with-amazon-machine-learning/
+ 
+ 
+
+https://aws.amazon.com/blogs/big-data/connecting-r-with-amazon-redshift/
+https://aws.amazon.com/blogs/big-data/statistical-analysis-with-open-source-r-and-rstudio-on-amazon-emr/
+https://aws.amazon.com/blogs/big-data/crunching-statistics-at-scale-with-sparkr-on-amazon-emr/
+https://aws.amazon.com/blogs/big-data/running-r-on-aws/
+ 
+https://aws.amazon.com/blogs/big-data/running-jupyter-notebook-and-jupyterhub-on-amazon-emr/
+ 
+https://aws.amazon.com/blogs/big-data/optimizing-downstream-data-processing-with-amazon-kinesis-data-firehose-and-amazon-emr-running-apache-spark/ 
+ 
+
+https://aws.amazon.com/blogs/architecture/central-logging-in-multi-account-environments/ 
+https://aws.amazon.com/blogs/big-data/encrypt-your-amazon-redshift-loads-with-amazon-s3-and-aws-kms/ 
+ 
+
+https://aws.amazon.com/blogs/database/secure-your-amazon-elasticsearch-service-domain-with-active-directory-authentication-and-authorization/ 
+https://aws.amazon.com/blogs/security/how-to-control-access-to-your-amazon-elasticsearch-service-domain/ 
+
+Amazon Kinesis
+	Architecture & Terminology
+	Kinesis Data Streams
+	Kinesis Data Firehose
+	Kinesis Data Analytics
+	Kinesis Video Streams
+	APIs
+	Kinesis Agents
+	Kinesis Producer Library & Kinesis Consumer Library
+	Scaling
+	Windowing and continuous functions
+	Best practices
+	Integration with other services
+	Limitations
+Amazon DynamoDB
+	Architecture & Terminology
+	Table design
+	Creating Table and configurations
+	On-demand provisioning & auto-scaling
+	Write Capacity Units (WCU) & Read Capacity Units
+	Burst capacity
+	Adaptive capacity
+	Read consistencies
+	Partitions
+	Streams
+	Replication
+	Erros/Exceptions
+	DynamoDB Accelerator (DAX)
+	Local Secondary Indexes
+	Global Secondary Indexes
+	Best practices
+	Integration with other services
+	Limitations
+	Encryption & Security
+Amazon Redshift
+	Architecture & Terminology
+	Table design
+	Distribution key
+	Sort key
+	Copy
+	Unload
+	Instance types
+	Scaling
+	Workload management
+	Compression
+	Snapshots
+	Best practices
+	Access Control
+	Integration with other services
+	Limitations
+	Encryption & Security
+Amazon S3
+	Different tiers
+	Version control
+	Bucket policies
+	Access Control List
+	Lifecycle Policies
+	Vault Lock
+	Encryption & Security
+Amazon QuickSight
+	Visuals
+	Data preparation
+	Data refresh
+	Dashboards
+	Story
+	Row level security
+	Data sources
+	File formats
+	Third parts APIs
+Amazon Elasticsearch Service
+	Architecture & Terminology
+	Shards
+	Access Policies
+	Integration with other services
+	Limitations
+	Encryption & Security
+Amazon EC2
+	Instance Types
+	AMIs
+	Encryption & Security
+	Access
+Amazon EMR
+	Creation and configuration
+	Install and setup applications/tools
+	Node types
+	Instance types
+	HDFS
+	Local storage
+	Instance store
+	EMRFS
+	Consistent view
+	Encryption & Security
+Amazon IoT Core
+	IoT Device SDK
+	Device Gateway
+	Message Broker
+	Authentication and Authorization
+	Registry
+	Device Shadow
+	Rules Engine
+Alexa Voice Service (AVS) Integration
+Amazon Machine Learning
+Amazon SageMaker
+Amazon SQS
+Amazon Athena
+	Data sources
+	Data format
+	Compression
+AWS Glue
+	Data Catalog
+	Crawlers
+	Scheduling
+	Use cases
+AWS Database Migration Service
+AWS Schema Conversion Tool
+AWS Migration Hub
+AWS Data Pipeline
+AWS Snowball
+AWS Storage Gateway
+AWS Direct Connect
+Amazon Virtual Private Cloud
+AWS Key Management Service (KMS)
+AWS CloudHSM
+AWS Identity and Access Management (IAM)
+Visualization Tools
+	D3.JS
+	Chart.js
+	Highcharts.js
+Big Data Technologies
+	Apache Hadoop
+	Apache Spark
+	Apache Hive
+	Apache HBase
+	Apache Presto
+	Apache Phoenix
+	Apache Sqoop
+	Hue
+Data Analysis/Data Exploration
+	Jupyter Notebook
+	Apache Zeppelin
+Business Intelligence Tools
+MicroStrategy
+
+
+
+Exam Tips:
+
+This exam is about scenario questions that none of the quizzes can guage from the above courses. Wearing an Architect’s hat and choosing the most cost-effective and least operations is the right approach.
+
+As stated above 80% focus is on: DynamoDB, EMR, Kinesis Stream/Firehose, Lambda, Redshift and S3
+
+Security services like IAM, VPC, Direct-Connect, Security Token Service, etc.,
+
+How does Encryption works for objects in S3: At-Rest/In-Transit, Client-Side/Server-Side, HSM and Cloud HSM.
+
+Dynamo DB and Accelerator
+
+Machine Learning Algorithms, Models and Instance Types CX, GPU, etc.
+
+EMR concepts and the tools like HIVE, HBASE, Spark, Spark Streaming
+
+Data Pipeline, Data Migration Services use cases
+
+QuickSight and Chart types like Bubble chart, Heat Map, etc.
+
+Athena, Pipeline, Glue (Catalog/Crawler)
+
+Anytime Anomaly option comes up in Kinesis it would be Kinesis Data Analytics: RandomCutForest Algorithm
+
+Data Scientists accessing sensitive data the data should be anonymized or hash-cryptography should be used.
+
+S3DistCop tool used to transfer HDFS data from on prem to S3 or S3 to on-prem through Direct Connect
+
+When to use Kinesis Streams vs Kinesis Firehose (real time vs near real time, managed vs fully managed, manual scaling vs autoscaling)
+
+When to use Binary, Multi-class or Regression models for Machine Learning?
+
+GSI and LSI when to use for what use case and ProvisionThroughputExceptions.
+
+Redshift table design considerations: EVEN, KEY or ALL
+
+When to use Redshift (PB or very large warehouse), Single AZ?
+
+How to copy Redshift snapshots with steps?
+
+When to sue S3 ETags?
+
+GZIP, BZIP2, Snappy compressions and what file types are splittable?
+
+Only a few ways/services to handle unstructured data.
+
+
+AWS Quality Addendum Report
+
+For EMR instance configuration, what types are used for ML or ad-hoc querying?
+
+S3 Partitioning techniques
+
+Centralized metadata layer, hive, glue, etc.
+
+DynamoDB latency and its relationship with checkpointing.
+
+Interactive querying with PB of data: Presto
+
+DISTIBUTION IN  REDSHIFT
+	https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on-amazon-redshift/
+	
+	
+An Amazon S3 Glacier vault access policy is a resource-based policy that you can use to manage permissions to your vault. For information about the different permissions policy options available
+
+S3 Glacier Vault Lock allows you to easily deploy and enforce compliance controls for individual S3 Glacier vaults with a vault lock policy. You can specify controls such as “write once read many” (WORM) in a vault lock policy and lock the policy from future edits. Once locked, the policy can no longer be changed.	
+
+
+ProvisionedThroughputExceeded. The capacity limits of an Amazon Kinesis data stream are defined by the number of shards within the data stream. The limits can be exceeded by either data throughput or the number of PUT records
+
+
+Real-time bidding is a perfect use case of DynamoDB accelerator.
+
+Only 100 buckets allowed for an AWS Account

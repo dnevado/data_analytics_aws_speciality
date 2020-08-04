@@ -1,0 +1,52 @@
+https://www.examtopics.com/exams/amazon/aws-certified-big-data-specialty/view/
+
+1.  A
+2.  C Python Elasticsearch Client
+3. A. Request AWS third-party audit reports and/or the AWS quality addendum and map the AWS responsibilities to the controls that must be provided.
+4. https://docs.aws.amazon.com/redshift/latest/dg/c_choosing_dist_sort.html
+
+	EVEN distribution
+
+	The leader node distributes the rows across the slices in a round-robin fashion, regardless of the values in any particular column. EVEN distribution is appropriate when a table does not participate in joins or when there is not a clear choice between KEY distribution and ALL distribution.
+
+	KEY distribution
+
+	The rows are distributed according to the values in one column. The leader node places matching values on the same node slice. If you distribute a pair of tables on the joining keys, the leader node collocates the rows on the slices according to the values in the joining columns so that matching values from the common columns are physically stored together.
+
+	ALL distribution
+
+	A copy of the entire table is distributed to every node. Where EVEN distribution or KEY distribution place only a portion of a table's rows on each node, ALL distribution ensures that every row is collocated for every join that the table participates in.
+
+	ALL distribution multiplies the storage required by the number of nodes in the cluster, and so it takes much longer to load, update, or insert data into multiple tables. ALL distribution is appropriate only for relatively slow moving tables; that is, tables that are not updated frequently or extensively
+
+5. C , Correcta es B (With Amazon EMR version 5.28.0, you can create and run EMR clusters on AWS Outposts. AWS Outposts enables 
+native AWS services, infrastructure, and operating models in on-premises 
+facilities https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-outposts.html)
+6. A,D 
+7. B (For MapReduce, if you need your compressed data to be splittable, BZip2, LZO, and Snappy formats are splittable, but GZip is not.)
+8. B   (KPL has built in fault tolerance with configurable retry mechanism and there is no need to write custom fault-tolerant logic to do so. Besides KPL allows us to batch the records ( aggregation and collection) out of th	e box without having to write custom code to achieve scalability) . Ojo que es PutRecords no AddRecords 
+9. B. https://aws.amazon.com/blogs/database/using-sort-keys-to-organize-data-in-amazon-dynamodb
+   A primary key can be a partition key or a combination of a partition key and sort key. The primary key must be unique across the table.	
+   When you combine a partition key and sort key, they create a composite key
+   Also it could be a compound sort key with two fields (userid más timestamp)
+   You can use Amazon DynamoDB Streams to load streaming data into Amazon Elasticsearch Service. Some of the strengths of DynamoDB lie in its auto scaling feature and its simple interface for storing data. Others include its speedy response times for demanding applications with features such as Amazon DynamoDB Accelerator (DAX), and its pairing in serverless architectures. Querying and retrieving data doesn’t have to be challenging if you consider and plan accordingly.
+   
+   Amazon DynamoDB supports two types of secondary indexes:
+
+	Global secondary index—An index with a partition key and a sort key that can be different from those on the base table. A global secondary index is considered "global" because queries on the index can span all of the data in the base table, across all partitions. A global secondary index has no size limitations and has its own provisioned throughput settings for read and write activity that are separate from those of the table.
+
+	Local secondary index—An index that has the same partition key as the base table, but a different sort key. A local secondary index is "local" in the sense that every partition of a local secondary index is scoped to a base table partition that has the same partition key value. As a result, the total size of indexed items for any one partition key value can't exceed 10 GB. Also, a local secondary index shares provisioned throughput settings for read and write activity with the table it is indexing.
+
+	Each table in DynamoDB can have up to 20 global secondary indexes (default quota) and 5 local secondary indexes.
+	
+10. B 
+	Hive, SparkSQL and Presto all need a consistent metadata store to be able to query. Hive Metastore can be configured to be be in RDS 		(not DynamoDB).The question is asking about exposing a HCatalog to other clusters. It is not about the consistency issue while reading object manipulated by other clusters. Therefore externalizing the Hive Catalog into RDS or creating a Amazon Glue catalog table that all clusters in the region can access is the right answer.
+
+	When you create a cluster with consistent view enabled, Amazon EMR uses an Amazon DynamoDB database to store object metadata and track consistency with Amazon S3. If consistent view determines that Amazon S3 is inconsistent during a file system operation, it retries that
+	operation according to rules that you can define	
+	
+	EMRFS consistent view is for different purpose, not for centralised metadata.
+	
+	there are basically three choices of having external Hive style data catalog - 
+	Hive catalog hosted in RDS, 
+	Glue catalog and pure Hive catalog hosted in EMR. 

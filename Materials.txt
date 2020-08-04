@@ -1,0 +1,1120 @@
+https://www.examtopics.com/exams/amazon/aws-certified-big-data-specialty/view/
+https://chercher.tech/aws-certification/aws-certified-big-data-speciality-practice-exams-set-1
+https://www.aws.training/Details/Curriculum?id=21332
+https://aws.amazon.com/es/blogs/big-data/best-practices-for-securing-amazon-emr/
+https://www.youtube.com/playlist?list=PL6tSYLNMLpOCGPBlgWsE4BOX5O9QF3a3i
+https://justpaste.it/64ix2
+https://daviseford.com/blog/2018/12/05/aws-big-data-specialty-exam-tips.html
+https://aws.amazon.com/kinesis/data-firehose/faqs/
+
+
+FAQs:
+https://aws.amazon.com/kinesis/data-streams/faqs/
+https://aws.amazon.com/kinesis/data-firehose/faqs/
+https://aws.amazon.com/kinesis/data-analytics/faqs/
+https://aws.amazon.com/kinesis/video-streams/faqs/
+https://aws.amazon.com/athena/faqs/
+https://aws.amazon.com/elasticsearch-service/faqs/
+https://aws.amazon.com/redshift/faqs/
+https://aws.amazon.com/emr/faqs/
+https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-bp.html
+https://aws.amazon.com/sagemaker/faqs/
+https://aws.amazon.com/dynamodb/faqs/?nc1=h_ls
+https://aws.amazon.com/es/msk/faqs/
+
+
+White papers:
+http://d0.awsstatic.com/whitepapers/Big_Data_Analytics_Options_on_AWS.pdf
+https://d0.awsstatic.com/whitepapers/whitepaper-streaming-data-solutions-on-aws-with-amazon-kinesis.pdf
+https://d1.awsstatic.com/whitepapers/Migration/migrating-applications-to-aws.pdf
+https://d1.awsstatic.com/whitepapers/enterprise-data-warehousing-on-aws.pdf
+https://d0.awsstatic.com/whitepapers/aws-amazon-emr-best-practices.pdf
+
+
+
+EXAM EXAMPLES 
+
+https://d1.awsstatic.com/training-and-certification/docs-data-analytics-specialty/AWS-Certified-Data-Analytics-Specialty_Sample-Questions_v.1.1_FINAL.pdf
+https://d0.awsstatic.com/training-and-certification/docs-bigdata-spec/BD-S%20Sample%20Questions%20for%20Web.pdf
+Good Tips:
+
+https://tutorialsdojo.com/aws-cheat-sheets-analytics-services/
+https://jayendrapatil.com/aws-certified-big-data-speciality-bds-c00-exam-learning-path/
+https://medium.com/@simonleewm/my-path-to-aws-big-data-speciality-certification-4baff3a8150
+https://daviseford.com/blog/2018/12/05/aws-big-data-specialty-exam-tips.html
+https://www.whizlabs.com/blog/aws-certified-big-data-specialty-preparation/
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html
+
+http://www.itcheerup.net/2019/02/kinesis_data_firehose/
+http://www.itcheerup.net/2019/08/aws-big-data-study-notes-aws-dynamodb-s3-sqs/
+http://www.itcheerup.net/2019/05/aws-big-data-study-notes-emr-redshift/
+http://www.itcheerup.net/2019/08/aws-big-data-study-notes-ml-iot/
+http://www.itcheerup.net/2019/04/aws-big-data-notes-kinesis/
+http://www.itcheerup.net/2019/08/aws-big-data-study-notes-aws-quicksight-athena-es/
+
+
+
+http://www.itcheerup.net/2018/08/hadoop-solution/
+http://www.itcheerup.net/2018/08/apache-hadoop-cheat-sheet/
+http://www.itcheerup.net/2018/09/data-storage-aurora-redshift-hadoop/
+http://www.itcheerup.net/2019/02/kinesis_data_firehose/
+http://www.itcheerup.net/2019/01/kafka-vs-kinesis/
+http://www.itcheerup.net/2018/07/aws-redshift-machine-learning/
+http://www.itcheerup.net/2018/09/redshift_spectrum/
+http://www.itcheerup.net/2018/07/dynamodb-data-modeling/
+http://www.itcheerup.net/2018/11/aws-dax-lab/
+http://www.itcheerup.net/2018/10/web-application-aurora-serverless/
+
+Go through Stephane and Frank’s course.
+Attend Practice test in that course at the end.
+Attempt AWS Certified Big Data Specialty 2020 Practice Exam Test.https://www.udemy.com/share/1024B8BkUbcFpRR3g=/  This is nowhere near to the real exam but this is the best you have got in Udemy, and also helps you know where you are and what you need to concentrate on.
+Attend AWS Practise test which you get in the Redeem Benefits Section in the AWS Certification console once you pass SAA or any other exam.
+Go through the Stephane and Frank’s course again. Make sure you understand thoroughly this time. (eg, what visualization charts sdk you use for webpages?)
+Take the exam in the morning when your mind is fresh and you can grasp things easily.
+
+An interleaved sort key gives equal weight to each column in the sort key, so query predicates can use any subset of the columns that make up the sort key, in any order The performance improvements you gain by implementing an interleaved sort key should be weighed against increased load and vacuum times. DON’T USE AN INTERLEAVED SORT KEY ON COLUMNS WITH MONOTONICALLY INCREASING ATTRIBUTES, SUCH AS IDENTITY COLUMNS, DATES, OR TIMESTAMPS.
+
+A compound sort key is more efficient when query predicates use a prefix, which is a subset of the sort key columns in order. 
+COMPOUND SORT KEYS MIGHT SPEED UP JOINS, GROUP BY AND ORDER BY OPERATIONS, and window functions that use PARTITION BY and ORDER BY. For example, a merge join, which is often faster than a hash join, is feasible when the data is distributed and presorted on the joining columns. Compound sort keys also help improve compression.
+The performance benefits of compound sorting decrease when queries depend only on secondary sort columns, without referencing the primary columns. COMPOUND IS THE DEFAULT SORT TYPE.
+
+
+Best practices for optimizing Redshift data size: 
+
+Split your load data files so that the files are about equal size, between 1 MB and 1 GB after compression. For optimum parallelism, the ideal size is between 1 MB and 125 MB after compression. 
+The number of files should be a multiple of the number of slices in your cluster.
+When loading data, we strongly recommend that you individually compress your load files using gzip, lzop, bzip2, or Zstandard when 
+you have large datasets. See more Amazon Redshift loading best practices here.
+You can also apply compression encodings when creating a table, as discussed previously in the module.
+
+If no classifier returns a certainty greater than 0.0, AWS Glue returns the default classification string of UNKNOWN. If you need an alternative to AWS Glue, due to the limitations listed in the documentation or if you want to integrate with other open-source applications such as Apache Ranger or Apache Atlas, then consider hosting your Hive metastore on Amazon RDS.Keep in mind that your Hive metastore is a single point of failure. 
+Amazon RDS doesn’t automatically replicate databases, so you should enable replication when using Amazon RDS to avoid any data loss in the event of failure.
+
+Having the data located in both Amazon S3 and Redshift you are increasing the costs without a good reason.
+
+Amazon EMR requires a lot of development
+
+Amazon Redshift: Automated backups and manual snapshots
+	Snapshots are point-in-time backups of a cluster. There are two types of snapshots: automated and manual. Amazon Redshift stores 	these snapshots internally in Amazon S3 by using an encrypted SSL connection.
+	Amazon Redshift automatically takes incremental snapshots that track changes to the cluster since the previous automated snapshot
+	
+While EMRFS provides fast performance, HDFS is used for the hottest data sets. 	
+	
+AWS Glue natively supports the following data stores by using the JDBC protocol:
+
+	Amazon Redshift
+	Amazon RDS, all six database engines
+	Non-AWS database engines
+	MariaDB
+	Microsoft SQL Server
+	MySQL
+	Oracle
+	PostgreSQL	
+
+AWS Glue Spark extensions provide a useful and out-of-the-box API to clean semistructured data via the 
+DynamicFrame API including resolve_choice, unnest, and renationalize
+
+
+	
+AWS Glue triggers
+
+	A trigger can be one of the following types:
+
+	Schedule 	
+		A time-based trigger based on cron.
+	Job events (conditional)
+		An event-based trigger that fires when a previous job or multiple jobs satisfy a list of conditions. You provide a list of job events to watch for when their run state changes to succeeded, failed, stopped, or timeout. This trigger waits to fire until any or all the conditions are satisfied.
+	On-demand
+		The trigger fires when you start it. As jobs complete, any triggers watching for completion are also fired and dependent jobs are started.
+	Other AWS Services:
+		You can use Amazon CloudWatch Events, AWS Lambda, or AWS Step Functions to trigger an AWS Glue workflow. 	
+		
+		
+No data transfer charge for communication between Amazon S3 and Amazon Redshift.
+
+		
+		
+Amazon Athena
+
+	Pay for the resources you consume. Priced per query, per TB of data scanned, and charges based on the amount of data scanned by the query. You can save significantly on per-query costs and get better performance by compressing, partitioning, and converting your data into columnar formats		
+	
+	
+	
+Amazon Athena
+
+	Querying can be done using the Athena Console. You can connect to Athena using the CLI, API via SDK and JDBC. 	
+	
+Amazon EMR supports many tools on top of Hadoop that can be used for big data analytics and each has its own interfaces. You should be familiar with the most popular options including:
+
+	Apache Hive open source data warehouse and analytics package that runs on Hadoop. HIVE IS OPERATED BY HIVE QL. 
+	It abstracts programming models and supports typical data warehouse interactions. 
+	Values in Hive tables are structured elements such as JSON objects, any user-defined data type, 
+	or any function written in Java. AMAZON EMR  IMPROVEMENTS TO HIVE INCLUDE DIRECT INTEGRATION WITH DYNAMODB AND AMAZON S3. 
+	
+	Apache Pig- open source analytics package that runs on top of Hadoop. Pig is operated by Pig Latin. 
+	It PROVIDES A SCRIPTING LANGUAGE THAT LETS YOU TRANSFORM LARGE DATA SETS WITHOUT HAVING TO WRITE COMPLEX CODE IN A LOWER LEVEL 
+	COMPUTER LANGUAGE.PIG WORKS WITH STRUCTURED AND UNSTRUCTURED DATA in a variety of formats.Amazon EMR improvements to Pig 
+	include the ability to use multiple file systems, the ability to load customer JARs and scripts from Amazon S3
+	, and additional functionality for String and DateTime processing.
+	
+	Apache Spark - open source distributed processing framework and programming model that helps you do machine learning, stream processing, or graph analytics using Amazon EMR clusters. Spark provides additional speed for certain analytics and is the foundation for other power tools such as:
+		Shark (SQL driven data warehousing), 
+		Spark Streaming (streaming applications), 
+		GraphX (graph systems) 
+		MLlib (machine learning). 
+	
+	Apache HBase - an open source, non-relational, distributed database modeled after Google's BigTable that runs on top of Hadoop.  
+		It provides a fault-tolerant, efficient way of storing large quantities of sparse data using column-based compression and storage. 
+		It provides for fast lookup of data because data is stored in-memory instead of on disk.
+		Optimized for sequential write operations, and highly efficient for batch inserts, updates, and deletes. 
+		Integrates with Apache Hive With Amazon EMR, you can back up HBase to Amazon S3 (full or incremental, 
+		manual or automated) and you can restore from a previously created backup.
+		
+	Presto - open-source DISTRIBUTED SQL QUERY ENGINE OPTIMIZED FOR LOW-LATENCY, ad-hoc analysis of data. Supports the ANSI SQL standard, including complex queries, aggregations, joins, and window functions. 	Process data from multiple data sources including the Hadoop Distributed File System (HDFS) and Amazon S3.
+	
+	Kinesis Connector-  ENABLES EMR TO DIRECTLY READ AND QUERY DATA FROM KINESIS DATA STREAMS.	
+	Perform batch processing of Kinesis streams using existing Hadoop ecosystem tools such as Hive, Pig, MapReduce, Hadoop 
+	Streaming, and Cascading. 	Useful for streaming log analysis, complex data processing workflows, and ad-hoc queries. AWS provides the ability to quickly move large amounts of data from Amazon S3 to HDFS, from HDFS to Amazon S3, and between Amazon S3 buckets using Amazon EMR’s S3DistCp.
+
+	You can use the EMR File System (EMRFS) and enable Amazon S3 server-side and client-side encryption. 
+	When you use EMRFS, a metadata store is transparently built-in DynamoDB to help manage the interactions 
+	with Amazon S3 and allows you to have multiple EMR clusters easily use the same EMRFS metadata and storage on Amazon S3.	
+
+
+You can load streaming data into Amazon Redshift using Amazon Kinesis Data Firehose, enabling near real-time analytics with 
+existing business intelligence tools and dashboards.
+
+Data Lakes allow you to run analytics without the need to move your data to another system. 
+You may produce reports directly from queries run against your Amazon Redshift data warehouse.
+You can use Amazon Athena with AWS Glue to query data stored on Amazon S3. 
+You could also use Amazon Redshift Spectrum to include Amazon S3 data in your Amazon Redshift queries.
+You can use Jupyter Notebooks with data visualization frameworks like scikit-learn to directly analyze and create visualizations of your data on Amazon EMR clusters or Amazon SageMaker instances. If you are using Apache Spark, you can also use Amazon EMR notebooks. Unlike a traditional notebook, the contents of an Amazon EMR notebook itself are saved in Amazon S3 separately from the cluster that runs the code.
+
+
+
+SPICE. Super-fast, Parallel, and In-memory Calculation Engine https://docs.aws.amazon.com/quicksight/latest/user/managing-spice-capacity.html
+Amazon QuickSight has two different editions for pricing; standard edition and enterprise edition. Pricing is based on an annual subscription. Both standard and enterprise editions include SPICE. SPICE AUTOMATICALLY REPLICATES DATA FOR HIGH AVAILABILITY AND ENABLES AMAZON QUICKSIGHT TO SCALE TO HUNDREDS OF THOUSANDS OF USERS who can all simultaneously perform fast interactive analysis across a wide variety of AWS data sources.
+
+
+
+Interactive analytics typically involves running complex queries across complex data sets at high speeds. 
+This type of analytics is interactive in that it allows a user to query and see results right away.
+ 
+
+	Amazon Athena makes it easy to analyze data directly in Amazon S3 and Amazon S3 Glacier using standard SQL queries.
+
+ 
+
+	Amazon Elasticsearch Service allows you to search, explore, filter, aggregate, and visualize your data in near real-time. 
+
+ 
+
+	Amazon Redshift provides the ability to run complex, analytic queries against petabytes of structured data and includes Redshift Spectrum, which runs SQL queries directly against exabytes of structured or unstructured data in Amazon S3 without the need for unnecessary data movement.
+	
+	
+Amazon Kinesis services are designed for streaming data (Kinesis Data Streams, Kinesis Data Firehose, and Kinesis Data Analytics).
+	Here is a case study on how Zillow Increases Accuracy of 'Zestimates' Using Amazon Kinesis	
+	https://aws.amazon.com/solutions/case-studies/zillow-zestimate/
+	
+	
+Amazon Athena 
+		Patterns 
+			Interactive ad hoc querying for weblogs – Athena is a good tool for interactive one-time SQL
+			queries against data on Amazon S3
+			Interactive Analytical Solutions with notebook-based solutions
+			Analyze AWS service logs 
+			Query staging data before loading into Amazon Redshift 
+		
+		Anti-patterns	
+			Enterprise Reporting and Business Intelligence Workloads – Amazon Redshift is a better too
+			ETL Workloads – You should use Amazon EMR/AWS Glue
+			RDBMS 
+			
+			
+ES
+		Patterns 
+			Analyze activity logs, e.g., logs for customer facing applications or websites
+			Analyze CloudWatch logs
+			Analyze product usage data coming from various services and systems
+			Analyze social media sentiments, CRM data and find trends for your brand and products
+			Analyze data stream updates from other AWS services, e.g., Amazon Kinesis Data Streams and Amazon DynamoDB
+			Provide customers a rich search and navigation experience.
+			Usage monitoring for mobile applications
+		
+		Anti-patterns	
+			Online transaction processing (OLTP) - Amazon ES is a real-time distributed search and analytics engine. There is no support for transactions or processing on data manipulation. If your requirement is for a fast transactional system, then a relational database system built on Amazon RDS, or a non-relational database offering functionality such as DynamoDB, is a better choice.
+			Ad hoc data querying – While Amazon ES takes care of the operational overhead of building a highly scalable Elasticsearch cluster if running Ad hoc queries or one-off queries against your data set is your use-case, Amazon Athena is a better choice.			
+			
+			
+EMR 
+		Patterns 
+			Log processing and analytics
+			Large extract, transform, and load (ETL) data movement
+			Risk modeling and threat analytics
+			Ad targeting and clickstream analytics
+			Genomics
+			Predictive analytics
+			Ad hoc data mining and analytics
+		
+		Anti-patterns	
+			Small data sets – Amazon EMR is built for massively parallel processing; if your data set is small enough to run quickly on a single machine, in a single thread, the added overhead to map and reduce jobs may not be worth it for small data sets that can easily be processed in memory on a single system.
+			ACID transaction requirements – While there are ways to achieve ACID (atomicity, consistency, isolation, durability) or limited ACID on Hadoop, using another database, such as Amazon RDS or a relational database running on Amazon EC2 may be a better option for workloads with stringent requirements.					
+			
+			
+Amazon Kinesis 
+		Patterns 
+			Real-time data analytics
+			Log and data feed intake and processing
+			Real-time metrics and reporting 
+			
+		Anti-patterns	
+			Small scale consistent throughput 
+			Long-term data storage and analytics 
+			
+			
+Amazon Redshift  
+		Patterns 
+			Analyze global sales data for multiple products
+			Store historical stock trade data
+			Analyze ad impressions and clicks
+			Aggregate gaming data
+			Analyze social trends
+			Measure clinical quality, operation efficiency, and financial performance in health care
+			
+		Anti-patterns	
+			Small data sets – Amazon Redshift is built for parallel processing across a cluster. If your data set is less than a hundred gigabytes, you are not going to get all the benefits that Amazon Redshift has to offer and Amazon RDS may be a better solution.
+			
+			On-line transaction processing (OLTP) – Amazon Redshift is designed for data warehouse workloads producing extremely fast and inexpensive analytic capabilities. If you require a fast transactional system, you may want to choose a traditional relational database system built on Amazon RDS or a Non-relational database offering, such as DynamoDB. 			
+			
+			
+Amazon QuickSight  
+		Patterns 
+			Quick interactive ad-hoc exploration and optimized visualization of data
+			Create and share dashboards and KPI’s to provide insight into your data
+			Create Stories which are guided tours through specific views of an analysis and allow you to share insights and collaborate with others. They are used to convey key points, a thought process, or the evolution of analysis for collaboration.
+			Analyze and visualize data coming from logs and stored in Amazon S3
+			Analyze and visualize data from on-premises databases like SQL Server, Oracle, PostgreSQL, and MySQL
+			Analyze and visualize data in various AWS resources, e.g., Amazon RDS databases, Amazon Redshift, Amazon Athena, and Amazon S3.
+			Analyze and visualize data in software as a service (SaaS) applications like Salesforce.
+			Analyze and visualize data in data sources that can be connected to using JDBC/ODBC connection.
+						
+		Anti-patterns	
+			Highly formatted canned Reports – Amazon QuickSight is much more suited for ad hoc query, analysis and visualization of data. For highly formatted reports e.g. formatted financial statements consider using a different tool.
+			ETL - While Amazon QuickSight can perform some transformations it is not a full-fledged ETL tool. AWS offers AWS Glue, which is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for 		analytics.				
+			
+			
+Here are the key features of using IAM with Amazon Redshift:
+
+	Amazon Redshift does not support resource-based policies.
+	Amazon Redshift provides service-linked roles, which include all the permissions that the service needs to call other AWS services on behalf of your Amazon Redshift cluster
+	As an alternative to maintaining user names and passwords in your Amazon Redshift database, you can configure the system to permit users to use IAM credentials to log on to the database. 
+	You can configure your system to let users access the database by using federated single-sign-on (SSO) through a SAML 2.0 identity provider. 
+	Amazon Redshift assumes an IAM role when data is loaded into a. cluster using the COPY command or exported data from a cluster using the UNLOAD command. This eliminates the need to embed AWS access credentials within SQL commands.			
+	
+	
+DynamoDB provides fine-grained access to your tables and data. You can: 
+
+Restrict access at the identity level. For example, you can grant permissions to users, groups, or roles to provide read-only access or write-only access to certain items or attributes in a table or secondary index. 
+Restrict access to individual data items and attributes. For example, you can grant permissions to a table, but restrict access to specific items based on certain primary key values.
+
+
+Apache Ranger is a role-based access control framework to enable, monitor, and manage comprehensive data security across the Hadoop platform. Review the following key characteristics:
+
+	Centralized security administration and auditing
+	Fine-grained authorization across many Hadoop components (Hadoop, Hive, HBase, Storm, Knox, Solr, Kafka, and YARN)
+	Syncs policies and users by using agents and plugins that run within the same process as the Hadoop component
+	
+	
+Amazon Redshift stored procedures
+
+	For fine-grained access control, you can create stored procedures to perform functions without giving a user access to 
+	the underlying tables. For example, only the owner or a superuser can truncate a table, and a user needs write 
+	permission to insert data into a table. Instead of granting a user permissions on the underlying tables, you can create a 
+	stored procedure that performs the task. You then give the user permission to run the stored procedure.	
+	Supports row-level authentication and auditing capabilities with embedded search.	
+	
+	
+You should consider using AWS CloudHSM if you require:
+
+	Keys stored in dedicated, third-party validated hardware security modules under your exclusive control.
+	FIPS 140-2 compliance.
+	Integration with applications using PKCS#11, Java JCE, or Microsoft CNG interfaces.
+	High-performance in-VPC cryptographic acceleration (bulk crypto).
+	If you need a multi-tenant, managed service that allows you to use and manage encryption keys, AWS KMS might be the better option. 	
+	
+P3 and G3 are both GPU instance types. Deep learning applications such as this benefit from multiple GPU’s, and can scale sub-linearly on these instance types.
+
+Interactive exploration of multi-dimensional data usually calls for a pivot table, as long as you’re not looking to quickly 
+identify outliers at the same time.
+
+Glue jobs can be scheduled at a minimum of 5 minutes,Glue does not integrate directly with DynamoDB.
+Kinesis Analytics cannot connect directly to Spark Streaming
+
+What are THREE ways in which EMR integrates Pig with Amazon S3?
+
+	Directly writing to HCatalog tables in S3
+	Submitting work from the EMR console using Pig scripts stored in S3
+	Loading custom JAR files from S3 with the REGISTER command
+	
+AWS Artifact 
+
+Amazon Macie cannot scan DynamoDB.
+Amazon Macie gives you an automated and low touch way to discover and classify your business data and detect sensitive information such as personally identifiable information (PII) and credential data.
+
+
+
+Amazon SNS is the correct choice for creating notifications; however, Amazon EMR can only be configured as a publisher to an SNS topic—it cannot subscribe to notifications.
+
+✓ A. EMRFS uses an Amazon DynamoDB database to store object metadata and track consistency in Amazon S3.  
+✓ C. EMRFS allows you to define retry rules for processing inconsistencies. 
+
+
+DynamoDB is an effective data store for this data and allows key-value-based querying. For additional analytics, 
+you can add a layer on top of that with Apache Hive and Amazon EMR. For more information, 
+see Using Amazon EMR with DynamoDB.
+
+Each node of an Amazon Redshift cluster has multiple slices that can each load data in parallel, 
+so multiple files per node is always more efficient than a single file per node. For more information, 
+see Split Your Load Data into Multiple Files.
+
+	Compressing files will make them more performant during the load operation.
+
+If no classifier returns a certainty greater than 0.0, AWS Glue returns the default classification string of UNKNOWN. For more information, see Adding Classifiers to a Crawler.
+
+Using Amazon S3 multipart upload will speed the process of getting recent data into the Amazon EMR cluster. The remaining data can 
+then be moved using AWS Import/Export all at once. For more information, see Configure Multipart Upload for Amazon S3 and Upload 
+Large Amounts of Data with AWS Import/Export.
+
+QuickSight is integrated with CloudTrail. This service provides a record of actions taken by a user, role, or an AWS service in QuickSight. CloudTrail captures all API calls for QuickSight as events. For more information, see Logging Operations with AWS CloudTrail.
+
+Amazon Redshift is ideal for large volumes of structured data that you want to persist and query using standard SQL and your existing 
+BI tools. You can use the COPY command to load data in parallel directly to Amazon 
+Redshift from Amazon EMR, DynamoDB, or any SSH-enabled host. for more information, see Amazon Redshift FAQs.
+
+Kinesis Data Firehose can transform data prior to storage using an AWS Lambda function. Amazon ES can perform
+ near-real-time analytics on streaming data.
+
+A scatter plot chart can be useful when you want to plot two different variables and see if a relationship exists between them.
+
+ Amazon Elasticsearch Service (Amazon ES) The simplest way to achieve the security requirement is to create 
+ IAM user accounts for yourself and your colleague and then add both to an IAM role with permissions 
+ to the Elasticsearch cluster. For more information, see How to Control Access to Your Amazon Elasticsearch Service Domain.
+
+
+MXNet and Tensorflow are both libraries used for building neural networks, and contain libraries that are helpful in creating convolutional neural networks  included in EMR 
+
+Amazon Redshift offers both SSD and HDD storage options for compute nodes.  Amazon RDS, DynamoDB, and Neptune 
+are all built n SSD
+
+Sqoop is an open-source system for transferring data between Hadoop and relational databases. Flume is intended for
+ real-time streaming applications, Glue is intended for use with S3, and you can’t direct EMRFS to arbitrary S3 buckets.
+
+EC2 instance types using a large-scale recurrent neural network.
+	P3
+	G3
+
+Multiple concurrent COPY commands might sound like a good idea, but in reality it forces Redshift to perform a slow, serialized load followed by a VACUUM process. 
+If you want to load data in parallel, it’s best to split your data into separate files no more than 1GB apiece. 
+Compressing the data also helps
+
+As the data streams must be stored for at least 3 days, you must use Kinesis Data Streams which has a configurable 
+data retention of between 1 and 7 days instead Firehose
+
+
+Spark Streaming can read and write to Kinesis Data Streams only
+
+The KPL has the mechanisms in place for retry and batching, as well as asynchronous mode. 
+The Kinesis agent is meant to retrieve server logs with just configuration files.
+	
+We cannot use KMS as we cannot leverage an internal key management system	
+	
+AMBARI VS GANGLIA 	
+
+AVRO is a format that can easily be split and distributed by MapReduce as needed. Alternately, 
+the data could be split manually into different files - but ideally you’d want these files to 
+be close to the default HDFS chunk size of 64MB in order to make the best use of HDFS.
+
+
+Kinesis Data Streams which has a configurable data retention of between 1 and 7 days.
+
+Interactive exploration of multi-dimensional data usually calls for a pivot table, as long as you’re not looking to quickly identify outliers at the same time.
+
+SQA can be used in place of WLM as a simple way to ensure short queries are not scheduled behind longer ones.
+
+
+DynamoDB Streams do not have direct integration with Firehose, DataPipeline will not have the data 
+fast enough into ElasticSearch, and DynamoDB Global Tables do not integrate with ElasticSearch. Here we need 
+to write a Lambda function that is triggered from a DynamoDB Stream
+
+
+Here, the key requirement is the real-time constraint. Kinesis Data Firehose is “near real time” (60 seconds minimum batch size) and thus cannot be used for delivery to S3 in real time. Finally, Spark Streaming can read and write to Kinesis Data Streams only.
+
+Redshift does not come with multi-AZ redundancy, so this is something you must build 
+yourself as described in “Spin up separate redshift clusters in multiple availability zones, using Amazon 
+Kinesis to simultaneously write data into each cluster. Use Route 53 to direct your analytics tools to the nearest cluster when querying your data.”.
+
+
+Storing all the data in S3 and none in HDFS will incur some extra costs as the data is constantly read and written back to S3. It’s better to keep a local copy on HDFS.
+
+As EMR is made of EC2 instances, the best and most secure way for them to be allowed to invoke a Lambda function is to attach IAM roles. There’s no Lambda policy or VPC Endpoint that can help for that matter.
+
+MXNet and Tensorflow are both libraries used for building neural networks, and contain libraries that are helpful in creating convolutional neural networks in EMR cluster.
+
+DataPipeline job to consolidate the files on a daily basis into a larger file. GZIP will not solve the problems, the files will still be small and you will have many of them. Kinesis Data Firehose does not have a flush time greater than 5 minutes, which will still create many small files
+
+S3 has eventually consistent properties, and to fix the problems this might imply in EMR, you need to enable EMRFS.
+
+
+ This type of data collection infrastructure is best used for streaming transactional data from 
+ existing relational data stores. You create a task within the Database Migration Service that
+ collects ongoing changes within your various operational data stores, an approach called ongoing 
+ replication or change data capture (CDC). These changes are streamed to an S3 bucket 
+ where a Glue job is used to transform the data and move it to your S3 data lake.&nbsp;
+ 
+ <a href="https://docs.aws.amazon.com/redshift/latest/dg/tutorial-loading-data.html" target="_blank">https://docs.aws.amazon.com/redshift/latest/dg/tutorial-loading-data.html</a>
+ 
+ Kinesis Data Analytics cannot write directly to S3; it only writes to a Kinesis data stream, a Kinesis Data Firehose delivery stream, or a Lambda function. Also, this collection architecture does not take advantage of the Database Migration Service ongoing replication or change data capture (CDC) technique.
+
+. The AWS IoT service ingests the device data, Kinesis Data Firehose streams the data to your S3 data lake, 
+then the S3DistCp command is used to compress and move the data inno your EMR cluster
+
+ The Kinesis Agent ingests the application log data, 
+ the Kinesis Analytics application transforms the data, and Kinesis Analytics 
+ queries are used to build your dashboard.
+
+. This data collection system architecture is best suited to batch consumption of stream data. 
+Crawling the S3 data using Glue and then using a Glue job to write the data to an S3 data 
+lake to then be queried by Athena allows you to produce aggregate data analytics. 
+These data can help you build your KPI dashboard.
+
+
+ This data collection system architecture is best suited to real-time consumption of data. 
+ Batch sensor data is better processed with a Glue ETL job versus a Kinesis Data Analytics application.
+ Glue is a managed ETL service that runs on a serverless Apache Spark environment. 
+ 
+ 
+  Kinesis Firehose does not have the capability to write directly to Aurora nor Kinesis Data Streams
+  
+  
+  Your application will write its game activity data to your DynamoDB table which will have DynamoDB streams enabled. 
+  DynamoDB Streams will record both the new and old (or before and after) images of any item in the DynamoDB table that is changed. 
+  Your Lambda function will be triggered by DynamoDB Streams. Your Lambda function will use the Firehose 
+  client to write to your Firehose stream. Firehose will stream your data to Redshift. 
+  Quicksite will visualize your data in near-real-time.
+  
+  
+  
+   You would use the Kinesis Producer Library (KPL) PutRecords method in your KPL code to send click-stream records 
+   into your Kinesis Data Streams stream. The KPL PutRecords automatically adds any failed records
+   back into the KPL buffer so it can be retried.
+   
+   
+   
+You have been tasked with determining scooter density of location throughout the city and redistributing 
+scooters if some areas of the city are overpopulated with scooters while other areas are underpopulated. 
+This solution requires real-time IoT data to be ingested into your data collection system.&nbsp;   
+
+	This data collection system architecture is better suited to batch consumption of stream data. 
+	Crawling the S3 data using Glue and then using a Glue job to write the data to an S3 data lake 
+	to then be queried by Athena would not allow you to produce real-time analytics. 
+	While Glue can process micro-batches, it does not handle streaming data.&nbsp;
+	
+	You can use a Kinesis Data Firehose stream to ingest the IoT data, then analyze and filter 
+	your data with Kinesis Data Analytics, then direct the analyzed data to another Kinesis Data Firehose stream
+	to load the data into your data warehouse in RedShift. 
+	Finally, use QuickSight to produce your visualization and dashboard for your management team.
+	
+	
+Apache Kafka/Amazon MSK allows you to process streaming data. It guarantees the correct order of 
+delivery of your data messages, but it uses the “at-least-once” delivery method. At-least-once delivery means
+ that the message will not be lost, but the message may be delivered to a consumer more than once.
+SQS in the FIFO mode guarantees the correct order of delivery of your data messages 
+and it uses the “exactly-once” delivery method. DynamoDB Streams guarantees 
+the correct order of delivery of your data messages and it uses the “exactly-once” 
+delivery method. Exactly-once means that all messages will be delivered exactly one time. 
+No message losses, no duplicate data. Exactly-once means that all messages will be delivered exactly one time.
+ No message losses, no duplicate data. 
+
+
+
+DynamoDB offers single-digit millisecond latency at scale. It also scales horizontally for high performance 
+at any size data store. Finally, DynamoDB offers global tables for multi-region replication of your data, 
+which you’ll need for your globally dispersed user base and ski 	resort locations.
+
+The best way to load data into Redshift also came up in a number of questions. 
+It's a columnar database so you need to look for options around bulk loading of data, not single row inserts.
+ Copy from S3 is always the recommended option. Compressing the files in S3 will speed up ingestion into Redshift. 
+ And loading multiple files instead of one big file is better. Redshift consists of nodes and those nodes consist
+ of slices. One file per slice or a multiple thereof is the fastest way to load data. How to use the manifest 
+ file with the Copy command also came up.
+
+Kinesis Data Streams doesn't work because it doesn't scale as the load increases.
+Kinesis Data Firehose doesn't work as Lambda cannot be a consumer of KDF. Here the lack of ordering and
+ the fact the processing may be long, and needs to scale based on the number of messages make SQS a 
+ great fit, that will also be more cost efficient
+
+
+
+Specific tips
+	For windowing use cases, pick KDA over Lambda.
+	Kinesis Data Streams does not integrate directly with any data storage. If one of the options in a question 
+	has Data streams writing data directly to S3/Redshift/Elasticsearch/Splunk, it is a wrong option. Firehose 
+	does integrate directly with these data destinations and would be the only option in this case.
+	KDA works only Data Streams and Firehose as a source. It integrates with Data Streams, Firehouse and Lambda
+	as a destination.
+	Copy from S3 is always the best method to load data into Redshift.
+	
+Domain 2: Storage and Data Management
+
+	There were a number of questions on the best file format for storage in S3. I always went with Parquet over any other option, the columnar option over the row-based option. Also you should flatten the json file before storing for use with Athena and Glue Catalog.
+
+	Using the Glue Data Catalog came up in a number of questions, both as part of the scenario and as an answer option.
+	In my opinion, the Glue Data Catalog should always be used over the Hive Data Catalog. You also need to understand how the Data Catalog gets refreshed either automatically via Glue crawlers or manually via API calls to refresh catalog or create new partitions.
+
+	Choosing an option for storing application logs came up. If the scenario called for real-time data with visualisations, there was more than likely an Elasticsearch with Kibana option. 
+	If a more cost-effective option was needed, storing in S3 with analysis via Athena would work. I seen the Glue crawlers come up in this scenario where the schema of the logs was not fixed. Crawlers could be used to crawl the logs and update the Glue Data Catalog.
+
+	Redshift is a great option for storing fixed schema data if you need to perform complex aggregations and analytics on the data. Understanding how to structure your tables in terms of distribution and sort keys for performance will help with a lot of questions. Redshift Spectrum allows you to create a view on data stored in S3 within your Redshift cluster. This allows you to keep newer, hotter data within Redshift and still archive data off to S3 without losing access to it. This scenario came up a couple of times and it's easy enough to answer if you keep this in mind, newer data in Redshift, older data in S3 accessible with Redshift Spectrum.
+
+	EMR as an option for storing data came up. I think there are a number of reasons for choosing EMR over S3 or Redshift:
+
+	You have a large scale on-premise Hadoop cluster and you don't want to rewrite all your code. Use EMR with EMRFS in this instance. Use Consistent View if it makes sense. It generally does.
+	You are using a very specific Apache project that needs tight integration with HDFS.
+	Scale. If you are processing terabytes of data per day or storing multiple petabytes of data in general, EMR will be a better option than Redshift.
+	I don't recall a scenario where you wouldn't use EMRFS but if you had to use HDFS on EBS volumes, it would be for high throughput, low latency processing on direct attached storage.
+
+Specific tips
+
+	When facing a choice between S3 or Redshift for storing data, watch out for phrases like complex analytics/queries or aggregations. This should indicate 
+	Redshift as the answer.
+	
+	Redshift distribution keys. Use Key for fact tables and All for dimension tables that don't update regularly.
+	Redshift Spectrum is a good option if you want to analyse data stored in Redshift and S3. It is not a standalone service in that you cannot call it without having a Redshift cluster. Therefore if the option is to only use Redshift Spectrum without utilising a Redshift cluster, it's the wrong option.
+	
+	In the previous Big Data exam, there was a big focus on DynamoDB. In the Data Analytics exam, there was one specific question out of 85 on DynamoDB. It was in reference to using DynamoDB streams to fork a feed of data out to Redshift. For myself, while I enjoyed learning about DynamoDB, it always felt a bit strange to be in a Big Data exam. It is covered extensively in the Developer exam and maybe AWS have realised that it fits better there.
+	
+	EMRFS Consistent View uses DynamoDB in the background to maintain the state of individual objects across AZ's in S3. There was one question around how to deal with a consistency issue that looked like it was actually an issue with DynamoDB throughput. Too many objects listed for DynamoDB to handle at default capacity allocated.
+	
+Domain 3: Processing
+
+	Too many small files in S3. Use Glue to merge them into bigger files.
+	Flattening json files and converting them to Parquet format. Glue is the perfect option for this once if the files are already at rest in S3.
+	Also with Glue, you need to understand the scenarios on when to use Pyspark or the Python Shell. There were some low-level questions that would have required you to have hands on experience with Glue. These were in relation to the use of DynamicFrames for holding data from multiple sources in memory and joining them together. There was also a question on performance tuning a Glue process by tuning specific named parameters.
+
+	There were a lot of questions on Redshift performance. Basically, there were a number of scenario based questions where multiple use cases are competing for resources on a Redshift cluster. Based on the scenario, you needed to pick between WLM (auto or manual), Short Query Acceleration, Concurrency Scaling or even an Elastic Resize to add and remove capacity as the best option. The scenario could be Data Scientists running large complex queries, competing with Data Analysts who just want to run short queries. Or your batch jobs that are running at the same time every day when your CEO needs his latest report. To be honest, I struggled with these questions and I am not sure if I picked correctly. I would say there were at least 5 questions in this area so it's definitely worth diving into.
+
+	Separately but related, there were two questions on when to use classic vs elastic resize for Redshift. One was around changing node type due to a change in business requirements. And another on just on-line expansion of the cluster without any downtime.
+
+Specific tips
+
+	Glue is a batch tool and cannot be used for immediate transformation of row level data. If the scenario calls
+	for that, you're looking at the Lambda option in that case. This can be specifically for Kinesis or 
+	trigger events on S3. Glue doesn't integrate directly with Kinesis but could consume data written
+	to S3 by Kinesis Data Firehose.
+
+	Use classic resize if changing Redshift node types. Use elastic resize if you are not changing node type and need to maintain uptime of cluster.
+	Glue is a good option for calling ML APIs. Redshift is not.
+	
+Domain 4: Analysis and Visualization
+
+	There were a lot of questions on Quicksight, some specific to the types of visualisations that are available. 
+	I had a question on the visualisation of geo data points for which the Quicksight map graph was an option. 
+	Tableau on EC2 also came up in one question.
+	
+	Presto was an option for one of the questions I was asked where you needed to run a short query against 
+	multiple data sources.
+	There was one question where the scenario was to use EMR for analysis. While it didn't say it specifically, 
+	I took this as the use of either Jupyter Notebook or Apache Zeppelin within EMR as the option.
+
+Specific tips
+
+	The previous Big Data exam and training materials would have covered non-AWS topics like D3.js and
+	Highcharts. They did not come up in my Data Analytics exam.
+
+Domain 5: Security
+
+	Understand the encryption options for data in S3 and which ones gives gives the customer more control
+	and/or management. Also understand where you would use S3 encryption versus the KMS. 
+	SSE = Server Side Encryption = encryption of data directly on AWS. 
+	CSE = Client Side Encryption = encryption before you send data to AWS. 
+	How to manage KMS keys between regions also came up.
+
+	There were a number of questions on how to manage multi-region access to data in S3. This was in relation 
+	to the AWS Glue Catalog and Athena. If you had data in two regions, how do you make that accessible in 
+	one Athena or Glue Data Catalog service? Cross-region replication was generally an option but is there a 
+	way to give Athena in one region access to S3 data in another?
+	
+		use a bucket policy to grant access.
+
+	Securing access to S3 data for Quicksight was also a topic. If you are using Quicksight with Athena and
+	the Glue Data Catalog for reporting on S3 data, at what layer do you enforce security?
+
+	Securing data in flight and at rest in EMR also came up. There were questions on Kerberos and 
+	integration with AD for executing specific tasks on the EMR cluster. There were very difficult and it
+	would require a more in-depth deep dive to cover this area.
+
+	There was one question on setting up encryption on the EBS root volumes used in an EMR cluster. 
+	Two of the options were manually installing HDFS on EC2 or using a bootstrapped script on each 
+	node when it starts. I went with the option of creating a new AMI that could be re-used each time a 
+	new node is added to the cluster. This way it would happen by default each time a node was added through
+	auto-scaling or otherwise.
+
+	A scenario around auditing all actions on Redshift also came up. There were some complicated answer 
+	options for this one around Enhanced VPC Routing and VPC Flow Logs but Redshift has an audit logging
+	feature that would fulfil it. Sometimes the obvious answer is the easiest.
+	
+		When you use Amazon Redshift enhanced VPC routing, Amazon Redshift forces all COPY and UNLOAD traffic
+		between your cluster and your 	data repositories through your Amazon vpc. If enhanced VPC routing is not enabled, Amazon Redshift routes
+		traffic through the internet,
+		
+		When you use enhanced VPC routing to route traffic through your VPC, you can also 
+		use VPC flow logs to monitor COPY and UNLOAD traffic.
+		
+		Amazon Redshift logs information about connections and user activities in your database
+		
+		
+
+
+EXAMEN AWS TRAINING
+
+MUCHO DE EMR / REDSHIFT / INTEGRACION CON S3 / ATHENA / Firehose DATA STREAMS
+
+When you’re looking for trends over time, line charts are usually the right choice.
+
+What security mechanisms are supported by EMR? (Select three)
+
+	https://aws.amazon.com/blogs/big-data/best-practices-for-securing-amazon-emr/
+	SSE-KMS
+	KMS
+	LUKS
+	
+1 WCU = 1 KB / s so we need 80KB * 400 / s = 32000 WCU. 1 RCU = 2 eventually consistent reads per second of 4 KB so we need 1800 * 80 / 8 = 18000 RCU.
+
+
+Read Replicas cannot be instantiated from an on-premise database. Here using a solution like DMS (Database Migration Service) is the right way to replicate the database state.
+
+S3 has eventually consistent properties, and to fix the problems this might imply in EMR, you need to enable EMRFS.
+
+HBase is the only option presented designed for OLTP and not OLAP, plus it has the advantage of already being present in EMR
+
+Note that we said “daily,” which means we don’t need real-time replication. Snapshots will do just fine. 
+“Move the data into S3 and use Amazon Redshift from multiple regions to query it.” 
+is a little bit misleading, as it doesn’t matter where you run Redshift itself from if the
+ data is stored elsewhere - but moving the data isn’t exactly a simple solution.
+
+Sqoop is an open-source system for transferring data between Hadoop and relational databases
+
+SSE-KMS will allow you to use different KMS keys to encrypt the objects, and then you can grant users access to
+ specific sets of KMS keys to give them access to the objects in S3 they should be able to decrypt.
+
+
+SQA can be used in place of WLM as a simple way to ensure short queries are not scheduled behind longer ones.
+
+¿WLM?
+
+
+AVRO is a format that can easily be split and distributed by MapReduce as needed. Alternately, the data could
+ be split manually into different files - but ideally you’d want these files to be close to the default HDFS chunk size of 64MB in order to make the best use of HDFS.
+
+
+Redshift does not come with multi-AZ redundancy, so this is something you must build yourself as described in “Spin up separate redshift clusters in multiple availability zones, using Amazon Kinesis to simultaneously write data into each cluster. Use Route 53 to direct your analytics tools to the nearest cluster when querying your data.”.
+
+Process game results immediately in real time and later perform analytics on the same game results in the order
+ they came at the end of business hours.
+
+	Here Kinesis is the best fit as the data can be replayed in the same order. 
+	SQS does not allow data replays, and DynamoDB would allow to replay some data, 
+	but it’d be different to get some ordering constraints working as well as well as enable real time use cases.
+	
+	
+Kinesis Data Streams doesn't work because it doesn't scale as the load increases.Kinesis Data Firehose doesn't work as Lambda cannot be a consumer of KDF. Lambda can only be used for transformations of data going through KDF before being delivered to S3, Redshift, ElasticSearch or Splunk. Here the lack of ordering and the fact the processing may be long, and needs to scale based on the number of messages make SQS a great fit, that will also be more cost efficient
+
+
+EMR allows you use S3 instead of HDFS for HBase’s data via EMRFS. Although you can export snapshots to S3, HBase itself does not automate this for you.
+
+number_of_shards = max(incoming_write_bandwidth_in_KiB/1024, outgoing_read_bandwidth_in_KiB/2048)
+incoming_write_bandwidth_in_KiB = average_data_size_in_KiB (round up to nearest 1 KiB) x records_per_second
+outgoing_read_bandwidth_in_KiB = incoming_write_bandwidth_in_KiB x number_of_consumers
+
+
+An administrator has a 500-GB file in Amazon S3. The administrator runs a nightly COPY command into
+a 10-node Amazon Redshift cluster. The administrator wants to prepare the data to optimize performance
+of the COPY command.
+How should the administrator prepare the data?
+
+
+	B) Split the file into 500 smaller files. 
+
+
+Use COPY with NOLOAD parameter into an Amazon Redshift. Most efficient way to detect load errors without performing any
+cleanup if the load process fails
+
+How to send event messages to Kinesis Data Streams synchronously vs. asynchronously
+	THE KINESIS PRODUCER LIBRARY (KPL) implements an asynchronous send function, so it can be used for the informational messages. PUTRECORDS is a synchronous send function, so it must be used for the critical events. 
+	
+	
+UNLOAD/COPY solutions because they will work in parallel between S3 y Redshift.  UNLOAD
+ENCRYPTED command automatically stores the data encrypted using-client side encryption and uses HTTPS to
+encrypt the data during the transfer to S3.
+
+Amazon Redshift can use an on-premises HSM for key management over the VPN, which ensures that
+the encryption keys are locally managed
+
+The Relationalize PySpark transform can be used to flatten the nested data into a structured format. 
+Amazon Redshift Spectrum can join the external tables and query the transformed clickstream data in place 
+rather than
+ needing to scale the cluster to accommodate the large dataset.
+
+A Publisher website captures user activity and sends clickstream data to Amazon Kinesis Data Streams. 
+The Publisher wants to design a cost-effective solution to process the data to create a timeline of user 
+activity within a session. The solution must be able to scale depending on the number of active sessions.
+
+	Include a session identifier in the clickstream data from the Publisher website and use as the partition key 	for the stream. Use the Kinesis Client Library (KCL) in the consumer application to retrieve the data from 	the stream and perform the processing. Deploy the  consumer application on Amazon EC2 instances in an 	EC2 Auto Scaling group. Use an AWS Lambda function to reshard the stream based upon Amazon 	CloudWatch alarms
+		
+			Partitioning by the session ID will allow a single processor to process all the actions for a user session in order. An AWS Lambda function can call the UpdateShardCount API action to change the number of shards in the stream. The KCL will automatically manage the number of processors to match the number of shards. Amazon EC2 Auto Scaling will assure the correct number of instances are running to meet the processing load.
+
+
+An Amazon Managed Streaming for Kafka cluster can be used to deliver the messages with very low latency. 
+It has a configurable message size that can handle the 1.5 MB payload. 
+
+
+ A CUSTOM JAR step can be configured to download a JAR file from an Amazon S3 bucket and execute it.
+Since the Hadoop versions are different, the Java application has to be recompiled.
+
+
+An online retail company wants to perform analytics on data in large Amazon S3 objects using Amazon EMR.
+ An Apache Spark job repeatedly queries the same data to populate an analytics dashboard. 
+ The Analytics team wants to minimize the time to load the data and create the dashboard
+
+
+	Load the data into Spark DataFrames
+	Use Amazon S3 Select to retrieve the data necessary for the dashboards from the S3 objects.
+	
+	
+	Amazon EMR offers features to help optimize performance when using Spark to query, read and write data saved in Amazon S3.
+
+	S3 Select can improve query performance for CSV and JSON files in some applications by "pushing down" processing 
+	to Amazon S3.
+
+	The EMRFS S3-optimized committer is an alternative to the OutputCommitter class, 
+	which uses the multipart uploads feature of EMRFS to improve performance when writing Parquet files to Amazon S3
+	using Spark SQL, DataFrames, and Datasets.
+	
+
+Amazon Kinesis Data Analytics can query data in a Kinesis Data Firehose delivery stream in near-real time using SQL. 
+A sliding window analysis is appropriate for determining trends in the stream. Amazon S3 can host a static webpage that 
+includes JavaScript that reads the data in Amazon DynamoDB and refreshes the dashboard 
+
+A real estate company is receiving new property listing data from its agents through .csv files every day and storing
+ these files in Amazon S3. The Data Analytics team created an Amazon QuickSight visualization report that uses a 
+ dataset imported from the S3 files. The Data Analytics team wants the visualization report to reflect the current 
+ data up to the previous day
+
+	Datasets created using Amazon S3 as the data source are automatically imported into SPICE. The Amazon QuickSight 
+	console allows for the refresh of SPICE data on a schedule. 
+
+A financial company uses Amazon EMR for its analytics workloads. During the company’s annual security audit, the 
+Security team determined that none of the EMR clusters’ root volumes are encrypted. The Security team recommends 
+the company encrypt its EMR clusters’ root volume as soon as possible
+
+	– Local disk encryption can be enabled as part of a security configuration to encrypt root and storage 	volumes.
+	
+	
+A company is providing analytics services to its Marketing and Human Resources (HR) departments. The departments can 
+only access the data through their business intelligence (BI) tools, which run Presto queries on an Amazon EMR 
+cluster that uses the EMR File System (EMRFS). The Marketing Data Analyst must be granted access to the advertising 
+table only. The HR Data Analyst must be granted access to the personnel table only. 
+
+	AWS Glue resource policies can be used to control access to Data Catalog resources. 	
+	An AWS Glue resource policy can only be used to manage permissions for Data Catalog resources. You can't attach 
+	it to any other AWS Glue resources such as jobs, triggers, development endpoints, crawlers, or classifiers.
+	
+	
+if your log files are compressed with GZIP, it is often best to keep your aggregated data file size to 1–2 GB. 
+The reason is that since GZIP files cannot be split, Hadoop assigns a single mapper to process your data.
+
+COMPRESSION EXTENSION SPLITABLE ENCODING/DECODING SPEED (SCALE 1-4) % REMAINING (SCALE 1-4)
+
+Gzip 			gz 		No 			1 									4
+LZO 			lzo 	Yes 		if indexed 2 						2
+Bzip2 			bz2 	Yes 		3 									3
+Snappy 			snappy 	No 			4 									1	
+
+
+EMR Performance Optimizations (Advanced)
+
+	The best performance optimization is to structure your data better (i.e., smart data partitioning). By structuring
+	your data more efficiently, you can limit the amount of data that Hadoop processes, which inherently gives you
+	better performance
+	
+	
+	Hadoop is a batch-processing framework that measures the common processing time duration in hours to days.If you 
+	have processing time constraints, Hadoop may not be a good framework for you
+	
+	Amazon EMR charges on hourly increments
+	
+	Don't forget that adding more nodes to increase performance is cheaper than spending time optimizing your cluster
+	
+	monitor your benchmark tests using Ganglia, an open source monitoring tool which can be installed on Amazon EMR using
+	a bootstrap action.
+
+
+Dblink allows you to offload queries in Redshift to another database entirely. A materialized view could work for this, 
+but it will always copy from the beginning of the table, and not just handle what has changed since the last incremental 
+update. Read through https://amzn.to/2fraaHv if this question confused you.
+
+S3 has eventually consistent properties, and to fix the problems this might imply in EMR, you need to enable EMRFS.
+
+DINAMODB, move that data over to ElasticSearch efficiently and as close to real time as possible?
+	<p>Enable DynamoDB Streams and write a Lambda function</p>
+	
+SSE-KMS will allow you to use different KMS keys to encrypt the objects, and then you can grant users access to 
+specific sets of KMS keys to give them access to the objects in S3 they should be able to decrypt.
+
+
+RANDOM_CUT_FOREST is a function in Kinesis Data Analytics intended for anomaly detection. By using serverless services 
+such as Kinesis, Lambda, and SNS we ensure the scalability of this system, and the choice of Kinesis Streams instead 
+of Firehose ensures real-time delivery of the data.
+
+The key is "multiple transient EMR clusters to access the same tables concurrently".
+For External RDS metastore, it is not recommended to write concurrently.(https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-metastore-external.html)
+For Glue, it have 1 to 10 concurrent access.(https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-metastore-glue.html)
+
+
+ProvisionedThroughputExcededException
+
+		Modify the application to use on the Kinesis Producer Library to aggregate requests before 
+		sending them to the Kinesis stream.
+
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html
+https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html
+
+classic vs elastic resize in Redshift
+
+Redshift
+	You can use the COPY command to load data in parallel from an Amazon EMR cluster configured 
+	to write text files to the cluster's Hadoop Distributed File System (HDFS) in the form of 
+	fixed-width files, character-delimited files, CSV files, JSON-formatted files, or Avro files.
+
+COMPONENTES DE UN DATALAKE EN AWS 
+	https://d1.awsstatic.com/whitepapers/Storage/data-lake-on-aws.pdf
+
+
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-groups.html
+
+QUICKSIGHT WITH S3 AS SOURCE NO ATHENA
+
+
+AWS Glue tracks data that has already been processed during a previous run of an ETL job by
+ persisting state information from the job run. This persisted state information is called a job bookmark. Job bookmarks
+ help AWS Glue maintain state information and prevent the reprocessing of old data. With job bookmarks, you can process 
+ new data when rerunning on a scheduled interval. A job bookmark is composed of the states for various elements of jobs, 
+ such as sources, transformations, and targets. For example, your ETL job might read new partitions in an Amazon S3 file. AWS 
+ Glue tracks which partitions the job has processed successfully to prevent duplicate processing and duplicate data in the 
+ job's target data store.
+
+
+
+The key is "multiple transient EMR clusters to access the same tables concurrently".
+	For External RDS metastore, it is not recommended to write concurrently.(https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-metastore-external.html)
+	For Glue, it have 1 to 10 concurrent access.(https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-metastore-glue.html)
+	
+	
+Creating External table using RedShift Spectrum will be an issue against unstructured data in multiple formats.	
+
+
+AVRO is a format that can easily be split and distributed by MapReduce as needed. Alternately, the data could be 
+split manually into different files - but ideally you’d want these files to be close to the default HDFS chunk size of 
+64MB in order to make the best use of HDFS.
+
+
+Amazon Elasticsearch Service supports one EBS volume (max size of 1.5 TB) per instance associated with a domain
+
+Spam filtering is a machine learning algorithm. It works with EMR and S3 which are most suitable scenario
+
+
+– The Relationalize PySpark transform can be used to flatten the nested data into a structured format.
+Amazon Redshift Spectrum can join the external tables and query the transformed clickstream data in place
+rather than needing to scale the cluster to accommodate the large dataset.
+
+Partitioning by the session ID will allow a single processor to process all the actions for a user session in
+order. An AWS Lambda function can call the UpdateShardCount API action to change the number of shards in
+the stream. The KCL will automatically manage the number of processors to match the number of shards.
+Amazon EC2 Auto Scaling will assure the correct number of instances are running to meet the processing load.
+
+
+ An Amazon Managed Streaming for Kafka cluster can be used to deliver the messages with very low
+latency
+
+
+Amazon EMR offers features to help optimize performance when using Spark to query, read and write data saved in Amazon S3.
+	
+	S3 Select can improve query performance for CSV and JSON files in some applications by "pushing down" processing to Amazon S3.
+	The EMRFS S3-optimized committer is an alternative to the OutputCommitter class, which uses the multipart uploads feature of EMRFS to improve performance when writing Parquet files to Amazon S3 using Spark SQL, DataFrames, and Datasets.
+	
+One of the speed advantages of Apache Spark comes from loading data into immutable dataframes,
+which can be accessed repeatedly in memory. Spark DataFrames organizes distributed data into columns. This
+makes summaries and aggregates much quicker to calculate. Also, instead of loading an entire large Amazon S3
+object, load only what is needed using Amazon S3 Select. Keeping the data in S3 avoids loading the large
+dataset into HDFS
+
+– Amazon Kinesis Data Analytics can query data in a Kinesis Data Firehose delivery stream in near-real time
+using SQL. A sliding window analysis is appropriate for determining trends in the stream. Amazon S3 can host a
+static webpage that includes JavaScript that reads the data in Amazon DynamoDB and refreshes the dashboard.
+
+¿s3distcp?	
+
+
+Datasets created using Amazon S3 as the data source are automatically imported into SPICE. The
+Amazon QuickSight console allows for the refresh of SPICE data on a schedule
+
+
+AWS Glue resource policies can be used to control access to Data Catalog resources. 
+
+For each Amazon Kinesis Data Streams application, the KCL uses a unique Amazon DynamoDB table to keep track of 
+the application's state. If your Amazon Kinesis Data Streams application receives provisioned-throughput exceptions, 
+you should increase the provisioned throughput for the DynamoDB table.
+
+WLM. 
+	hoping queues will become more frequent resulting in degraded performance. Associating one queue per user group also 
+	won’t guarantee improved performance if the table is filtered on a column that it is cannot be sorted on
+	
+	Interleaved sort gives equal weight to each column, or subset of columns, in the sort key. If multiple queries use
+	different columns for filters, then you can often improve performance for those queries by using an interleaved 
+	sort style. When a query uses restrictive predicates on secondary sort columns, interleaved sorting significantly 
+	improves query performance as compared to compound sorting
+	
+	
+CRR is a bucket-level configuration, and it can help you meet compliance requirements and minimize latency by 
+keeping copies of your data in different Regions.
+
+Presto (or PrestoDB) is an open source, distributed SQL query engine, designed from the ground up 
+for fast analytic queries against data of any size. It supports both non-relational sources, such as the Hadoop 
+Distributed File System (HDFS), Amazon S3, Cassandra, MongoDB, and HBase, and relational data sources such as MySQL, 
+PostgreSQL, Amazon Redshift, Microsoft SQL Server, and Teradata	
+
+
+IOT rules engine have capability to send the messages to the target topic
+
+EMRFS consistent view tracks consistency using a DynamoDB table to track objects in Amazon S3 that have 
+been synced with or created by EMRFS
+
+S3 ACLs to allow access to specific elements of the platform
+
+
+loading data into your Amazon Redshift database tables from data files in an Amazon S3 bucket from beginning to end.
+
+	In this tutorial, you do the following:
+
+	Download data files that use comma-separated value (CSV), character-delimited, and fixed width formats.
+
+	Create an Amazon S3 bucket and then upload the data files to the bucket.
+
+	Launch an Amazon Redshift cluster and create database tables.
+
+	Use COPY commands to load the tables from the data files on Amazon S3.
+
+	Troubleshoot load errors and modify your COPY commands to correct the errors.
+	
+Kinesis Data Analytics	
+
+	Stagger Windows: A query that aggregates data using keyed time-based windows that open as data arrives. 
+	The keys allow for multiple overlapping windows. This is the recommended way to aggregate data using time-based windows, 
+	because Stagger Windows reduce late or out-of-order data compared to Tumbling windows.
+
+	Tumbling Windows: A query that aggregates data using distinct time-based windows that open and close 
+	at regular intervals.
+
+	Sliding Windows: A query that aggregates data continuously, using a fixed time or rowcount interval.
+
+	Continuous Queries
+	A query over a stream executes continuously over streaming data. This continuous execution enables 
+	scenarios, such as the ability for applications to continuously query a stream and generate alerts.	
+	
+
+Amazon Web Services – Best Practices for Amazon EMR August 2013
+	between 500 MB to 1 GB, GZIP compression is an acceptable data compression type. However, if your data aggregation
+	creates files larger than 1 GB, its best to pick a compression algorithm that supports splitting.
+	
+	
+	
+Amazon CloudWatch Logs Subscriptions
+
+	With subscriptions, you can access a near-real time feed of the log events being delivered to your CloudWatch Logs 
+	log groups. The log events are delivered to an Amazon Kinesis stream that you provide so that you can perform
+	your own custom processing	
+	
+¿When to run Glue crawler to refresh data?	
+You can use job metrics in AWS Glue to estimate the number of data processing units (DPUs) that can be used to 
+scale out an AWS Glue job.
+		spark.yarn.executor.memoryOverhead
+
+
+When automatic scaling is configured, Amazon EMR adds and removes instances based on Amazon CloudWatch metrics 
+that you specify. The following are two of the most common metrics used for automatic scaling in Amazon EMR:
+
+	YarnMemoryAvailablePercentage: The percentage of remaining memory available to YARN.
+	ContainerPendingRatio: The ratio of pending containers to containers allocated. You can use this metric to scale a 
+	cluster based on container-allocation behavior for varied loads, which is useful for performance tuning.
+	
+ATHENA and quicksight 	
+
+	CSV, JSON, Avro or columnar data formats such as Apache Parquet and Apache ORC. Amazon Athena integrates 
+	with Amazon QuickSight for easy visualization.	
+	
+	
+Heat maps and pivot tables display data in a similar tabular fashion. Use a heat map if you want to identify 
+trends and outliers, because the use of color makes these easier to spot. Use a pivot table if you want to 
+analyze data on the visual.	
+
+
+Loading data from s3 to redshift using copy command
+	Option 1: Key Prefix Matching
+	Option 2: Manifest File
+
+EMRFS consistent view tracks consistency using a DynamoDB table to track objects in Amazon S3 that have been synced with or created by EMRFS. The metadata is used to track all operations (read, write, update, and copy), and no actual content is stored in it.
+
+
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs-process-sample-data.html
+
+
+AWS Glue tracks data that has already been processed during a previous run of an ETL job by persisting state 
+information from the job run
+
+
+interactive queries to manipulate the data === PRESTO 
+
+
+AWS Database Migration Service (AWS DMS) is a cloud service that makes it easy to migrate relational databases, 
+data warehouses, NoSQL databases, and other types of data stores. You can use AWS DMS to migrate your data into the AWS
+ Cloud, between on-premises instances (through an AWS Cloud setup), or between combinations of cloud and on-premises setups.
+
+With AWS DMS, you can perform one-time migrations, and you can replicate ongoing changes to keep sources and 
+targets in sync
+
+
+https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+https://docs.aws.amazon.com/glue/latest/dg/components-key-concepts.html
+
+		You can use both dynamic frames and Apache Spark dataframes in your ETL scripts, and convert between them. 
+		Dynamic frames provide a set of advanced transformations for data cleaning and ETL.
+		A web-based environment that you can use to run your PySpark statements. PySpark is a Python dialect for 
+		ETL programming
+
+
+The KPL PutRecords operation sends requests to your stream that occasionally exhibit full or partial failures. Records 
+that fail are automatically added back to the KPL buffer. The new deadline is set based on the minimum of 
+these two values:
+
+	Half the current RecordMaxBufferedTime configuration
+
+	The record’s time-to-live value
+	
+	
+DATA COLLECTION WITH NO LOST DATA , PROCESS ON ORDER AND NO DUPLCATE DATA 
+
+	SQS FIFO
+	DYNAMODB STREAMS
+
+
+DYNAMODB offer low latency (single digit millisecond) at scale , offers global tables for multi region replication 

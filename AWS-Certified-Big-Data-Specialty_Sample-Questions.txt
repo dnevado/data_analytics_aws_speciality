@@ -1,0 +1,30 @@
+https://d1.awsstatic.com/training-and-certification/docs-bigdata-spec/AWS-Certified-Big-Data-Specialty_Sample-Questions.pdf
+
+A
+B
+B
+D
+B	
+The core of this question is how to send event messages to Kinesis synchronously vs. asynchronously.
+The critical events must be sent synchronously, and the informational events can be sent asynchronously. The
+Kinesis Producer Library (KPL) implements an asynchronous send function, so it can be used for the
+informational messages. PutRecords is a synchronous send function, so it must be used for the critical events.
+	
+B
+b
+C
+	The most scalable solutions are the UNLOAD/COPY solutions because they will work in parallel, which
+eliminates A and D as answers. Option C is incorrect because the data would not be encrypted in flight, and you
+cannot encrypt an entire bucket with a KMS key. Option B meets the encryption requirements, the UNLOAD
+ENCRYPTED command automatically stores the data encrypted using-client side encryption and uses HTTPS to
+encrypt the data during the transfer to S3.
+
+C
+B
+	Amazon Redshift can use an on-premises HSM for key management over the VPN, which ensures that
+	the encryption keys are locally managed. Option B is possible: CloudHSM can cluster to an on-premises HSM.
+	But then key management could be performed on either the on-premises HSM or CloudHSM, and that doesn’t
+	meet the design goal. Option C does not describe a valid feature of KMS and violates the requirement for the
+	corporate HSM to manage the keys requirement, even if it were possible. Option D is not possible because you
+	cannot put hardware into an AWS Region
+		
